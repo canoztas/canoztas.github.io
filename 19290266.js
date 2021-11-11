@@ -28,13 +28,13 @@ class Letter{
 		const d = new Date();
 		let hour = d.getHours();
 		if(hour<7)
-		this.color = [0, 0, 204, 1];
-		else if(hour<13)
-		this.color = [255, 128, 0, 1];
-		else if(hour<18)
-		this.color = [255, 255, 51, 1];
+		this.color = [0/256, 0/256, 204/256, 1];
+		else if(hour>7 && hour<13)
+		this.color = [255/256, 128/256, 0/256, 1];			
+		else if(hour>13 && hour<18)
+		this.color = [250/256, 214/256, 29/256, 1];
 		else
-		this.color=[224,224,224,1];
+		this.color=[224/256,224/256,224/256, 1];
 
 		this.theta = 0;
 		this.updown = 0;
