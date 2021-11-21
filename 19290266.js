@@ -3,26 +3,23 @@ const canvas = document.querySelector("#glcanvas");
 var gl = WebGLUtils.setupWebGL(canvas);
 var program;
 var positionLocation;
-var resolutionLocation;
+
 var colorLocation; 
 var translationLocation;
-var rotationLocation;
 var scaleLocation;
 var thetaLocation;
-var postPoneLocation;
 var positionBuffer;
 
 var selected;
 var r,s;
 var interval;
 
-
 class Letter{
 	constructor(verticies,name){
 		this.vertices = verticies;
 		this.name = name;
 		this.length = length(this.vertices)*length(this.vertices)*length(this.vertices);
-		this.rotation = [1, 1];
+		
 		this.scale = [0.5, 0.5];
 
 		const d = new Date();
@@ -45,8 +42,7 @@ class Letter{
 		this.scale = [Math.random(),Math.random()];
 		this.color = [Math.random(),Math.random(),Math.random(),1];
 		this.theta = Math.random()*720;
-	}
-	
+	}	
 
 }
 
@@ -80,14 +76,11 @@ function colorChanged(e){
 	if(selected == null)
 	return;
 	var color = [0,0,0,1];
-	//alert("sdf");
-	//var tmp = hexToRgb(this.value);
 	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(e.value);
 	color[0] = parseInt(result[1], 16)/256;
 	color[1] = parseInt(result[2], 16)/256;
 	color[2] = parseInt(result[3], 16)/256;
 
-	
 	selected.color = color;
 	render();
 	
@@ -210,14 +203,13 @@ function drawScene(whatToPut) {
     gl.uniform4fv(colorLocation, whatToPut.color);
 
 
-    // Set the rotation.
-    gl.uniform2fv(rotationLocation, whatToPut.rotation);
+ 
 
     // Set the scale.
     gl.uniform2fv(scaleLocation, whatToPut.scale);
 
-	// Set the postpone.
-	gl.uniform2fv(postPoneLocation, [whatToPut.leftright,whatToPut.updown]);
+	// Set the translation.
+	gl.uniform2fv(translationLocation, [whatToPut.leftright,whatToPut.updown]);
 
 	// Set the theta.
 	gl.uniform1f(thetaLocation, whatToPut.theta);
@@ -231,8 +223,9 @@ function drawScene(whatToPut) {
 function render(){
 	gl.clearColor(0.0, 0.0, 0.0, 1.0);
 	gl.clear(gl.COLOR_BUFFER_BIT);
-	drawScene(r);
 	drawScene(s);
+	drawScene(r);
+	
 }
 
 
@@ -240,7 +233,6 @@ function render(){
 
 window.onload = function init(){
 	document.addEventListener('keypress',keyPress);
-	
 	
 	// Initialize the GL context 
 	// Only continue if WebGL is available and working
@@ -257,10 +249,9 @@ window.onload = function init(){
    
 	 // lookup uniforms
 	colorLocation = gl.getUniformLocation(program, "u_color");
-	rotationLocation = gl.getUniformLocation(program, "u_rotation");
 	scaleLocation = gl.getUniformLocation(program, "u_scale");
     thetaLocation = gl.getUniformLocation(program,"u_theta");
-	postPoneLocation = gl.getUniformLocation(program,"u_postpone");
+	translationLocation = gl.getUniformLocation(program,"u_translation");
 
 	 // Create a buffer to put positions in
 	positionBuffer = gl.createBuffer();
@@ -270,11 +261,7 @@ window.onload = function init(){
 	 // Put geometry data into buffer
 	
 	
-	//translation = [100, 150];
-	
-	
-	
-	var vertices = new Float32Array( 
+	var verticesForR = new Float32Array( 
         [
 
 		  -0.95,-0.95,
@@ -328,16 +315,21 @@ window.onload = function init(){
 		  -0.10,-0.95,
 		  -0.15,-0.75, //13
 		  -0.80,0,
-		  
-		 
+
+		   0,0,
+		   0,0,
+		   0,0,
+
+		   0,0,
+		   0,0,
+		   0,0
 	]);
 	
-	window.r = new Letter(vertices,"r");
-	//toBuffer(r);
+	window.r = new Letter(verticesForR,"r");
 	
 	
 
-	var vertices = new Float32Array( 
+	var verticesForS = new Float32Array( 
 	[
 			0.95,0.90,
 			0.95,0.95, //1
@@ -390,21 +382,19 @@ window.onload = function init(){
 			0.90,-0.80,
 			0.10,-0.80, //13
 			0.90,-0.75,
-			/*
+
 			0.10,-0.75,
 			0.10,-0.80, //14
-			0.90,-0.75
-*/
+			0.90,-0.75,
 
-
-	 
+			0.50,-0.75,
+			0.60,-0.95, //15 
+			0.40,-0.95,
 	]);
-	window.s = new Letter(vertices,"s");
-	//toBuffer(s);
+	window.s = new Letter(verticesForS,"s");
+	
 	render();
 		
-	
-
 
 }
 

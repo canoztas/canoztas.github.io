@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<head></head>
+
+<body>
+   <div style="width: 100%;">
+      <div style="width: 50%; float:left;">
+    <canvas id="glcanvas" width="900" height="800" style="display: flex;"></canvas>
+    <br>
+    <h2 class="h2">Refik Can Öztaş - 19290266</h2>
+   </div>
+   <div>
+      <br>
+      <h1 class="h1">Bir takım notlar:</h1>
+      <h2 class="h2">Harf seçildikten sonra hareket ettirme, döndürme, büyütme küçültme, renk değiştirme yapılabilir. Harf renkleri günün saatine göre default atanır.</h2>
+      <h2 class="h2">Seçili harfi WASD ile oynatabiliriz.</h2>
+      <h2 class="h2">Döndürme yapmak için Q-E kullanabiliriz.</h2>
+      <h2 class="h2">R ile harfler arası geçebiliriz.</h2>
+      <h2 class="h2">İlk basışta Kaos Moduna iki kere basınız.</h2>
+  
+      
+   </div>
+    <div> DÖNDÜR 0 <input class="slider" id="sldRot" type="range" min="0" max="720" step="1" value="50" /> 360 </div>
+    <br>
+    <div> BÜYÜT 0 <input class="slider" id="sldSca" type="range" min="0.1" max="2" step="0.05" value="1" /> 1 </div>
+    <br>
+    <div>RENK
+      <input id="clcCol" type="color" onchange="colorChanged(this)" value="#2b00c7" ><br>
+    <br>
+   </div>
+    <div>
+    <button class="button button1" id="btnR" onclick="buttonClick('btnR')">R</button>
+    <button class="button button1" id="btnS" onclick="buttonClick('btnS')">S</button>
+    <br>
+    <button class="button button2" chaos=false id="btnChaos" onclick="chaosClick()">KAOS MODU</button>
+    <span id="spnEnd" style="visibility: hidden; font-weight: bolder; float:right;">BİTİRMEK İÇİN TEKRAR BASINIZ</span>
+   </div>
+    
+    <script id="vertex-shader" type="x-shader/x-vertex">
+      attribute vec2 a_position;
+      
+      uniform vec2 u_translation;
+      uniform vec2 u_scale;
+      uniform float u_theta;
+
+      void main() {
+        
+        vec2 scaledPosition = a_position * u_scale;
+
+        vec2 translationedPosition = scaledPosition + u_translation;
+        
+        vec2 position = translationedPosition;
+
+        gl_Position.x = cos(u_theta) * position.x - sin(u_theta) * position.y;
+        gl_Position.y = sin(u_theta) * position.x + cos(u_theta) * position.y;
+        gl_Position.z = 0.0;
+        gl_Position.w = 1.0;
+
+      }
+     </script>
+     <script id="fragment-shader" type="x-shader/x-fragment"> 
+        precision mediump float;
+
+        uniform vec4 u_color;
+        
+        void main() {
+           gl_FragColor = u_color;
+        }
+      
+     </script>
+     <script src="../common/MV.js"></script>
+     <script src="../common/initShaders.js"></script>
+     <script src="../common/webgl-utils.js"></script>
+     <script src="19290266.js"></script>
+   </div>
+
+</body>
+
+
+<style>
+  .button {
+     border: none;
+     color: white;
+     padding: 40px 100px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 50px;
+     margin: 4px 100px;
+     transition-duration: 0.4s;
+     cursor: pointer;
+  }
+   
+  .button1 {
+     background-color: white; 
+     color: black; 
+     border: 2px solid #2b00c7;
+  }
+   
+  .button1:hover {
+     background-color: #2b00c7;
+     color: white;
+  }
+
+  .button2 {
+     background-color: white; 
+     color: black; 
+     border: 10px solid #ff0000;
+     padding: 40px 90px;
+     font-weight: bolder;
+     margin: 40px 200px;
+  }
+
+  .button2:hover {
+     background-color: #ff0000;
+     color: white;
+  }
+
+  .slider {
+  -webkit-appearance: none;
+  width:40%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  }
+
+  .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #2b00c7;
+  cursor: pointer;
+  }
+
+  .slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2b00c7;
+  cursor: pointer;
+  }
+
+  .h1 { 
+  color: #2b00c7; font-family: 'Rouge Script', cursive; font-size: 50px; font-weight: normal; line-height: 48px; margin: 0px 0px 50px; text-align: center; text-shadow: 1px 1px 2px #082b34; 
+} 
+
+  .h2 { 
+  color: #000000; font-family: 'Julius Sans One', sans-serif; font-size: 22px; font-weight: bold; line-height: 32px; margin: 0 0 24px; text-shadow: 1px 1px 1px #082b34; 
+  }
+   
+   </style>
