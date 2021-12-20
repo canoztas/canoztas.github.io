@@ -1,0 +1,53 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.ZeroR -batch-size 128
+Relation:     remaining_behavior_ext
+Instances:    34422
+Attributes:   10
+              inter_api_access_duration(sec)
+              api_access_uniqueness
+              sequence_length(count)
+              vsession_duration(min)
+              ip_type
+              behavior_type
+              num_sessions
+              num_users
+              num_unique_apis
+              source
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: outlier
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       24145               70.1441 %
+Incorrectly Classified Instances     10277               29.8559 %
+Kappa statistic                          0     
+Mean absolute error                      0.2195
+Root mean squared error                  0.3313
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances            34422     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.000    0.000    ?          0.000    ?          ?        0.464     0.001     attack
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.038     bot
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.260     normal
+                 1.000    1.000    0.701      1.000    0.825      ?        0.500     0.701     outlier
+Weighted Avg.    0.701    0.701    ?          0.701    ?          ?        0.500     0.561     
+
+=== Confusion Matrix ===
+
+     a     b     c     d   <-- classified as
+     0     0     0    22 |     a = attack
+     0     0     0  1309 |     b = bot
+     0     0     0  8946 |     c = normal
+     0     0     0 24145 |     d = outlier
+

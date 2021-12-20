@@ -1,0 +1,58 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.OneR -B 6 -batch-size 128
+Relation:     remaining_behavior_ext
+Instances:    34422
+Attributes:   10
+              inter_api_access_duration(sec)
+              api_access_uniqueness
+              sequence_length(count)
+              vsession_duration(min)
+              ip_type
+              behavior_type
+              num_sessions
+              num_users
+              num_unique_apis
+              source
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+num_users:
+	< 1.5	-> outlier
+	< 100.5	-> normal
+	>= 100.5	-> bot
+(33148/34422 instances correct)
+
+
+Time taken to build model: 0.05 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       33143               96.2844 %
+Incorrectly Classified Instances      1279                3.7156 %
+Kappa statistic                          0.9126
+Mean absolute error                      0.0186
+Root mean squared error                  0.1363
+Relative absolute error                  8.4633 %
+Root relative squared error             41.1438 %
+Total Number of Instances            34422     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.001     attack
+                 0.046    0.000    0.882      0.046    0.087      0.196    0.523     0.077     bot
+                 0.999    0.032    0.916      0.999    0.956      0.941    0.984     0.916     normal
+                 1.000    0.044    0.982      1.000    0.991      0.969    0.978     0.982     outlier
+Weighted Avg.    0.963    0.039    ?          0.963    ?          ?        0.962     0.929     
+
+=== Confusion Matrix ===
+
+     a     b     c     d   <-- classified as
+     0     0     1    21 |     a = attack
+     0    60   816   433 |     b = bot
+     0     8  8938     0 |     c = normal
+     0     0     0 24145 |     d = outlier
+

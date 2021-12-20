@@ -1,0 +1,61 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.OneR -B 6 -batch-size 128
+Relation:     remaining_behavior_ext
+Instances:    34422
+Attributes:   10
+              inter_api_access_duration(sec)
+              api_access_uniqueness
+              sequence_length(count)
+              vsession_duration(min)
+              ip_type
+              behavior_type
+              num_sessions
+              num_users
+              num_unique_apis
+              source
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+num_users:
+	< 1.5	-> outlier
+	< 100.5	-> normal
+	>= 100.5	-> bot
+(33148/34422 instances correct)
+
+
+Time taken to build model: 0.05 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on test split: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       11262               96.2317 %
+Incorrectly Classified Instances       441                3.7683 %
+Kappa statistic                          0.9124
+Mean absolute error                      0.0188
+Root mean squared error                  0.1373
+Relative absolute error                  8.5565 %
+Root relative squared error             41.1759 %
+Total Number of Instances            11703     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.001     attack
+                 0.050    0.001    0.667      0.050    0.093      0.175    0.524     0.069     bot
+                 0.996    0.031    0.920      0.996    0.957      0.942    0.983     0.918     normal
+                 1.000    0.045    0.981      1.000    0.990      0.968    0.977     0.981     outlier
+Weighted Avg.    0.962    0.040    ?          0.962    ?          ?        0.961     0.929     
+
+=== Confusion Matrix ===
+
+    a    b    c    d   <-- classified as
+    0    0    1    9 |    a = attack
+    0   22  268  152 |    b = bot
+    0   11 3103    0 |    c = normal
+    0    0    0 8137 |    d = outlier
+

@@ -1,0 +1,269 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -U -M 2 -batch-size 128
+Relation:     remaining_behavior_ext
+Instances:    34422
+Attributes:   10
+              inter_api_access_duration(sec)
+              api_access_uniqueness
+              sequence_length(count)
+              vsession_duration(min)
+              ip_type
+              behavior_type
+              num_sessions
+              num_users
+              num_unique_apis
+              source
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+J48 unpruned tree
+------------------
+
+num_users <= 1
+|   sequence_length(count) <= 2.5
+|   |   num_sessions <= 1
+|   |   |   source = E: bot (189.0/2.0)
+|   |   |   source = F
+|   |   |   |   num_unique_apis <= 1: bot (11.0)
+|   |   |   |   num_unique_apis > 1
+|   |   |   |   |   inter_api_access_duration(sec) <= 0.1304: bot (3.0/1.0)
+|   |   |   |   |   inter_api_access_duration(sec) > 0.1304: outlier (3.0)
+|   |   num_sessions > 1: outlier (225.0/10.0)
+|   sequence_length(count) > 2.5
+|   |   api_access_uniqueness <= 0.079365
+|   |   |   num_unique_apis <= 11
+|   |   |   |   num_unique_apis <= 2
+|   |   |   |   |   num_sessions <= 43: outlier (251.0/1.0)
+|   |   |   |   |   num_sessions > 43
+|   |   |   |   |   |   source = E: outlier (45.0)
+|   |   |   |   |   |   source = F: bot (4.0)
+|   |   |   |   num_unique_apis > 2
+|   |   |   |   |   ip_type = datacenter: outlier (5.0)
+|   |   |   |   |   ip_type = default
+|   |   |   |   |   |   num_sessions <= 1
+|   |   |   |   |   |   |   api_access_uniqueness <= 0.020868: outlier (29.0)
+|   |   |   |   |   |   |   api_access_uniqueness > 0.020868
+|   |   |   |   |   |   |   |   num_unique_apis <= 8
+|   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 7.543506
+|   |   |   |   |   |   |   |   |   |   source = E: outlier (14.0)
+|   |   |   |   |   |   |   |   |   |   source = F
+|   |   |   |   |   |   |   |   |   |   |   sequence_length(count) <= 124.4
+|   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 3: outlier (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   api_access_uniqueness <= 0.057011: bot (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   api_access_uniqueness > 0.057011: outlier (3.0)
+|   |   |   |   |   |   |   |   |   |   |   sequence_length(count) > 124.4: bot (42.0/5.0)
+|   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 7.543506
+|   |   |   |   |   |   |   |   |   |   source = E
+|   |   |   |   |   |   |   |   |   |   |   vsession_duration(min) <= 215023: outlier (33.0)
+|   |   |   |   |   |   |   |   |   |   |   vsession_duration(min) > 215023
+|   |   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 79.1488
+|   |   |   |   |   |   |   |   |   |   |   |   |   sequence_length(count) <= 82.5: outlier (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   sequence_length(count) > 82.5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 5: bot (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 57.207471: outlier (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 57.207471: bot (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 79.1488: bot (13.0)
+|   |   |   |   |   |   |   |   |   |   source = F
+|   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 27.4391
+|   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 4: outlier (13.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 4
+|   |   |   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 12.124418: bot (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 12.124418
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 5: outlier (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   vsession_duration(min) <= 138862: outlier (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   vsession_duration(min) > 138862: bot (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 27.4391: outlier (39.0)
+|   |   |   |   |   |   |   |   num_unique_apis > 8
+|   |   |   |   |   |   |   |   |   vsession_duration(min) <= 641351: outlier (43.0/2.0)
+|   |   |   |   |   |   |   |   |   vsession_duration(min) > 641351: bot (5.0)
+|   |   |   |   |   |   num_sessions > 1
+|   |   |   |   |   |   |   inter_api_access_duration(sec) <= 36.204015: outlier (31.0/1.0)
+|   |   |   |   |   |   |   inter_api_access_duration(sec) > 36.204015: bot (2.0)
+|   |   |   |   |   ip_type = google_bot: outlier (0.0)
+|   |   |   |   |   ip_type = private_ip: outlier (53.0)
+|   |   |   num_unique_apis > 11: outlier (484.0)
+|   |   api_access_uniqueness > 0.079365
+|   |   |   num_unique_apis <= 2
+|   |   |   |   ip_type = datacenter
+|   |   |   |   |   num_sessions <= 1: outlier (18.0)
+|   |   |   |   |   num_sessions > 1: bot (2.0)
+|   |   |   |   ip_type = default
+|   |   |   |   |   inter_api_access_duration(sec) <= 33.79875
+|   |   |   |   |   |   num_sessions <= 1: outlier (341.0/2.0)
+|   |   |   |   |   |   num_sessions > 1
+|   |   |   |   |   |   |   sequence_length(count) <= 3.5: outlier (71.0)
+|   |   |   |   |   |   |   sequence_length(count) > 3.5
+|   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 0.010937: outlier (40.0)
+|   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 0.010937
+|   |   |   |   |   |   |   |   |   vsession_duration(min) <= 4: bot (5.0)
+|   |   |   |   |   |   |   |   |   vsession_duration(min) > 4
+|   |   |   |   |   |   |   |   |   |   num_unique_apis <= 1
+|   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 0.1106: outlier (2.0)
+|   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 0.1106: bot (2.0)
+|   |   |   |   |   |   |   |   |   |   num_unique_apis > 1
+|   |   |   |   |   |   |   |   |   |   |   source = E
+|   |   |   |   |   |   |   |   |   |   |   |   num_sessions <= 3: bot (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   num_sessions > 3: outlier (6.0)
+|   |   |   |   |   |   |   |   |   |   |   source = F: outlier (20.0/1.0)
+|   |   |   |   |   inter_api_access_duration(sec) > 33.79875
+|   |   |   |   |   |   api_access_uniqueness <= 0.581818
+|   |   |   |   |   |   |   num_sessions <= 1
+|   |   |   |   |   |   |   |   num_unique_apis <= 1
+|   |   |   |   |   |   |   |   |   vsession_duration(min) <= 279484: outlier (54.0/3.0)
+|   |   |   |   |   |   |   |   |   vsession_duration(min) > 279484: bot (7.0/2.0)
+|   |   |   |   |   |   |   |   num_unique_apis > 1
+|   |   |   |   |   |   |   |   |   source = E
+|   |   |   |   |   |   |   |   |   |   api_access_uniqueness <= 0.15: bot (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   api_access_uniqueness > 0.15: outlier (57.0/3.0)
+|   |   |   |   |   |   |   |   |   source = F: outlier (85.0)
+|   |   |   |   |   |   |   num_sessions > 1
+|   |   |   |   |   |   |   |   source = E: bot (5.0/1.0)
+|   |   |   |   |   |   |   |   source = F: outlier (3.0/1.0)
+|   |   |   |   |   |   api_access_uniqueness > 0.581818
+|   |   |   |   |   |   |   num_sessions <= 1: bot (7.0)
+|   |   |   |   |   |   |   num_sessions > 1: outlier (3.0)
+|   |   |   |   ip_type = google_bot: outlier (0.0)
+|   |   |   |   ip_type = private_ip
+|   |   |   |   |   source = E: bot (9.0)
+|   |   |   |   |   source = F: outlier (11.0)
+|   |   |   num_unique_apis > 2
+|   |   |   |   vsession_duration(min) <= 145511
+|   |   |   |   |   ip_type = datacenter
+|   |   |   |   |   |   num_sessions <= 2: outlier (72.0)
+|   |   |   |   |   |   num_sessions > 2: bot (4.0)
+|   |   |   |   |   ip_type = default
+|   |   |   |   |   |   num_unique_apis <= 29
+|   |   |   |   |   |   |   sequence_length(count) <= 123.5
+|   |   |   |   |   |   |   |   source = E
+|   |   |   |   |   |   |   |   |   num_unique_apis <= 11
+|   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 30.595: outlier (5508.0/19.0)
+|   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 30.595
+|   |   |   |   |   |   |   |   |   |   |   num_sessions <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   api_access_uniqueness <= 0.338983
+|   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 6: outlier (71.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 6
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 7
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   api_access_uniqueness <= 0.25: outlier (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   api_access_uniqueness > 0.25: bot (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 7: outlier (17.0)
+|   |   |   |   |   |   |   |   |   |   |   |   api_access_uniqueness > 0.338983: outlier (571.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   num_sessions > 1
+|   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 3: bot (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 3: outlier (19.0)
+|   |   |   |   |   |   |   |   |   num_unique_apis > 11: outlier (4193.0)
+|   |   |   |   |   |   |   |   source = F: outlier (5803.0/5.0)
+|   |   |   |   |   |   |   sequence_length(count) > 123.5
+|   |   |   |   |   |   |   |   source = E: outlier (385.0)
+|   |   |   |   |   |   |   |   source = F
+|   |   |   |   |   |   |   |   |   api_access_uniqueness <= 0.133333: outlier (106.0/1.0)
+|   |   |   |   |   |   |   |   |   api_access_uniqueness > 0.133333
+|   |   |   |   |   |   |   |   |   |   sequence_length(count) <= 163.2: outlier (92.0/7.0)
+|   |   |   |   |   |   |   |   |   |   sequence_length(count) > 163.2
+|   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 23: bot (2.0)
+|   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 23: outlier (14.0/4.0)
+|   |   |   |   |   |   num_unique_apis > 29: outlier (3255.0)
+|   |   |   |   |   ip_type = google_bot: outlier (1.0)
+|   |   |   |   |   ip_type = private_ip: outlier (1121.0/3.0)
+|   |   |   |   vsession_duration(min) > 145511
+|   |   |   |   |   num_unique_apis <= 16
+|   |   |   |   |   |   source = E
+|   |   |   |   |   |   |   vsession_duration(min) <= 226180: outlier (140.0/6.0)
+|   |   |   |   |   |   |   vsession_duration(min) > 226180
+|   |   |   |   |   |   |   |   api_access_uniqueness <= 0.218182
+|   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 74.484727: outlier (9.0)
+|   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 74.484727: bot (25.0/3.0)
+|   |   |   |   |   |   |   |   api_access_uniqueness > 0.218182: outlier (28.0/3.0)
+|   |   |   |   |   |   source = F: outlier (334.0/1.0)
+|   |   |   |   |   num_unique_apis > 16
+|   |   |   |   |   |   source = E: outlier (407.0)
+|   |   |   |   |   |   source = F
+|   |   |   |   |   |   |   num_unique_apis <= 19: outlier (19.0)
+|   |   |   |   |   |   |   num_unique_apis > 19
+|   |   |   |   |   |   |   |   num_unique_apis <= 23
+|   |   |   |   |   |   |   |   |   num_sessions <= 1
+|   |   |   |   |   |   |   |   |   |   vsession_duration(min) <= 214200
+|   |   |   |   |   |   |   |   |   |   |   vsession_duration(min) <= 175778: outlier (12.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   vsession_duration(min) > 175778
+|   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 21
+|   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis <= 20: attack (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 20
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) <= 33.483286: attack (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   inter_api_access_duration(sec) > 33.483286: outlier (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   num_unique_apis > 21: attack (5.0)
+|   |   |   |   |   |   |   |   |   |   vsession_duration(min) > 214200: outlier (7.0)
+|   |   |   |   |   |   |   |   |   num_sessions > 1: outlier (2.0)
+|   |   |   |   |   |   |   |   num_unique_apis > 23: outlier (18.0/1.0)
+num_users > 1
+|   source = E
+|   |   num_users <= 99: bot (797.0)
+|   |   num_users > 99
+|   |   |   inter_api_access_duration(sec) <= 0.000181: bot (58.0)
+|   |   |   inter_api_access_duration(sec) > 0.000181: normal (5.0)
+|   source = F
+|   |   num_unique_apis <= 1
+|   |   |   vsession_duration(min) <= 121008
+|   |   |   |   sequence_length(count) <= 1.5: bot (3.0/1.0)
+|   |   |   |   sequence_length(count) > 1.5: normal (104.0/1.0)
+|   |   |   vsession_duration(min) > 121008: bot (7.0/1.0)
+|   |   num_unique_apis > 1
+|   |   |   num_sessions <= 1: normal (131.0/4.0)
+|   |   |   num_sessions > 1
+|   |   |   |   vsession_duration(min) <= 88401
+|   |   |   |   |   num_sessions <= 54: normal (7946.0)
+|   |   |   |   |   num_sessions > 54
+|   |   |   |   |   |   num_users <= 7
+|   |   |   |   |   |   |   num_unique_apis <= 12: bot (4.0)
+|   |   |   |   |   |   |   num_unique_apis > 12: normal (11.0)
+|   |   |   |   |   |   num_users > 7: normal (437.0)
+|   |   |   |   vsession_duration(min) > 88401
+|   |   |   |   |   num_unique_apis <= 5
+|   |   |   |   |   |   num_sessions <= 3: normal (106.0/1.0)
+|   |   |   |   |   |   num_sessions > 3
+|   |   |   |   |   |   |   sequence_length(count) <= 9.75: normal (7.0)
+|   |   |   |   |   |   |   sequence_length(count) > 9.75: bot (3.0)
+|   |   |   |   |   num_unique_apis > 5: normal (204.0/1.0)
+
+Number of Leaves  : 	107
+
+Size of the tree : 	207
+
+
+Time taken to build model: 0.47 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on test split: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       11622               99.3079 %
+Incorrectly Classified Instances        81                0.6921 %
+Kappa statistic                          0.9844
+Mean absolute error                      0.0048
+Root mean squared error                  0.0545
+Relative absolute error                  2.159  %
+Root relative squared error             16.3488 %
+Total Number of Instances            11703     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.100    0.000    1.000      0.100    0.182      0.316    0.882     0.344     attack
+                 0.894    0.002    0.940      0.894    0.916      0.914    0.969     0.909     bot
+                 0.999    0.000    0.999      0.999    0.999      0.999    0.999     0.999     normal
+                 0.997    0.015    0.993      0.997    0.995      0.985    0.995     0.995     outlier
+Weighted Avg.    0.993    0.011    0.993      0.993    0.993      0.985    0.995     0.992     
+
+=== Confusion Matrix ===
+
+    a    b    c    d   <-- classified as
+    1    0    1    8 |    a = attack
+    0  395    1   46 |    b = bot
+    0    3 3111    0 |    c = normal
+    0   22    0 8115 |    d = outlier
+

@@ -1,0 +1,275 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H "a, 5" -G -R -batch-size 128
+Relation:     remaining_behavior_ext
+Instances:    34422
+Attributes:   10
+              inter_api_access_duration(sec)
+              api_access_uniqueness
+              sequence_length(count)
+              vsession_duration(min)
+              ip_type
+              behavior_type
+              num_sessions
+              num_users
+              num_unique_apis
+              source
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -7.269061821436102
+    Node 12    -1.2324733354901145
+    Node 13    -1.4172174042440597
+    Node 14    -1.4855256422196559
+    Node 15    -1.2187595672795888
+    Node 16    -1.2580053014013346
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    -5.903376777870933
+    Node 12    -3.203336456638469
+    Node 13    3.2566205291844295
+    Node 14    -3.0164541146076065
+    Node 15    -2.1835067270185644
+    Node 16    7.083667612313148
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    6.8916797290554825
+    Node 12    -4.559490680848864
+    Node 13    -8.6305571116131
+    Node 14    -2.241697949621091
+    Node 15    -3.9466798385849473
+    Node 16    -8.873660535617942
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -6.545813473701342
+    Node 12    3.779354839168035
+    Node 13    -3.6695606861478733
+    Node 14    3.130540318315706
+    Node 15    2.8516308175759275
+    Node 16    5.120284623919917
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    1.3806830438105113
+    Attrib inter_api_access_duration(sec)    4.074021536558507
+    Attrib api_access_uniqueness    10.311153213958292
+    Attrib sequence_length(count)    5.979488715754903
+    Attrib vsession_duration(min)    9.470491120977192
+    Attrib ip_type=datacenter    -1.2142088902986798
+    Attrib ip_type=default    -0.69391057966946
+    Attrib ip_type=google_bot    -1.318508400412939
+    Attrib ip_type=private_ip    0.5391598762708358
+    Attrib num_sessions    -8.501615342015356
+    Attrib num_users    -35.792951841100695
+    Attrib num_unique_apis    31.294535386982304
+    Attrib source=F    -0.5685126090743441
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    1.782814840939844
+    Attrib inter_api_access_duration(sec)    1.949512671648469
+    Attrib api_access_uniqueness    -10.682028158932658
+    Attrib sequence_length(count)    -8.858554642149985
+    Attrib vsession_duration(min)    32.28243389326289
+    Attrib ip_type=datacenter    -1.138571842283388
+    Attrib ip_type=default    -8.576581655393245
+    Attrib ip_type=google_bot    -1.8107205793390062
+    Attrib ip_type=private_ip    7.954755911649948
+    Attrib num_sessions    2.885091778872287
+    Attrib num_users    5.0383580366056755
+    Attrib num_unique_apis    -14.982979869366723
+    Attrib source=F    -15.454939257820522
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    46.899548468227806
+    Attrib inter_api_access_duration(sec)    0.15990251695015367
+    Attrib api_access_uniqueness    0.7598982121211394
+    Attrib sequence_length(count)    -186.2973181306407
+    Attrib vsession_duration(min)    0.024405877435652253
+    Attrib ip_type=datacenter    -14.914870792066898
+    Attrib ip_type=default    -15.668731278112691
+    Attrib ip_type=google_bot    -46.9816181152984
+    Attrib ip_type=private_ip    -16.42616910595116
+    Attrib num_sessions    8.54537179755256
+    Attrib num_users    274.535118927356
+    Attrib num_unique_apis    13.565234969208262
+    Attrib source=F    0.174153676814803
+Sigmoid Node 7
+    Inputs    Weights
+    Threshold    13.675214947047285
+    Attrib inter_api_access_duration(sec)    -8.609833913228668
+    Attrib api_access_uniqueness    -4.977308806883399
+    Attrib sequence_length(count)    -100.50344625352864
+    Attrib vsession_duration(min)    10.28875793393599
+    Attrib ip_type=datacenter    -14.801739522379519
+    Attrib ip_type=default    16.247041763566333
+    Attrib ip_type=google_bot    -13.67898050330927
+    Attrib ip_type=private_ip    -15.03070608082748
+    Attrib num_sessions    10.13142076214545
+    Attrib num_users    120.16048635990875
+    Attrib num_unique_apis    25.39577150455588
+    Attrib source=F    1.4423140044268379
+Sigmoid Node 8
+    Inputs    Weights
+    Threshold    -0.28151233937824105
+    Attrib inter_api_access_duration(sec)    13.717603141782474
+    Attrib api_access_uniqueness    23.56920381989163
+    Attrib sequence_length(count)    8.75717892390794
+    Attrib vsession_duration(min)    6.074761788668623
+    Attrib ip_type=datacenter    1.8379155697283487
+    Attrib ip_type=default    -5.158162695495612
+    Attrib ip_type=google_bot    0.3701007601031173
+    Attrib ip_type=private_ip    3.6221174219294245
+    Attrib num_sessions    -5.015436164314274
+    Attrib num_users    -51.49069136249417
+    Attrib num_unique_apis    -23.49989969287056
+    Attrib source=F    -19.16595821841296
+Sigmoid Node 9
+    Inputs    Weights
+    Threshold    0.14481835860529874
+    Attrib inter_api_access_duration(sec)    26.007924796409398
+    Attrib api_access_uniqueness    59.56412302077057
+    Attrib sequence_length(count)    8.453531304400574
+    Attrib vsession_duration(min)    -1.9666435457845377
+    Attrib ip_type=datacenter    1.5393572033162572
+    Attrib ip_type=default    -3.264550138388527
+    Attrib ip_type=google_bot    -0.20339722668816346
+    Attrib ip_type=private_ip    1.595107165007116
+    Attrib num_sessions    -6.63073988351056
+    Attrib num_users    -73.84038603468389
+    Attrib num_unique_apis    -27.262786293894976
+    Attrib source=F    -9.29329536731048
+Sigmoid Node 10
+    Inputs    Weights
+    Threshold    3.009555965220814
+    Attrib inter_api_access_duration(sec)    4.044520013603531
+    Attrib api_access_uniqueness    18.9427122022228
+    Attrib sequence_length(count)    0.3272163211932357
+    Attrib vsession_duration(min)    3.68484390581945
+    Attrib ip_type=datacenter    -1.0480965008930163
+    Attrib ip_type=default    1.1170778424564036
+    Attrib ip_type=google_bot    -3.012370734490256
+    Attrib ip_type=private_ip    -3.035105694820597
+    Attrib num_sessions    6.918204635466105
+    Attrib num_users    -1.1762712945190963
+    Attrib num_unique_apis    -3.552424370737937
+    Attrib source=F    -19.79359062421167
+Sigmoid Node 11
+    Inputs    Weights
+    Threshold    -7.488833761035337
+    Attrib inter_api_access_duration(sec)    14.82731230370896
+    Attrib api_access_uniqueness    5.063361448904566
+    Attrib sequence_length(count)    77.37762939509958
+    Attrib vsession_duration(min)    -13.88850817613636
+    Attrib ip_type=datacenter    9.744649240609347
+    Attrib ip_type=default    -12.002000296796579
+    Attrib ip_type=google_bot    7.462900991043573
+    Attrib ip_type=private_ip    9.745293747671015
+    Attrib num_sessions    -11.144807913013915
+    Attrib num_users    -91.70472021737389
+    Attrib num_unique_apis    -26.998554784665085
+    Attrib source=F    -0.29279028399847407
+Sigmoid Node 12
+    Inputs    Weights
+    Threshold    -22.249532410892318
+    Node 4    0.7725228111901651
+    Node 5    -5.066338473016123
+    Node 6    -18.496605770289403
+    Node 7    6.6738118776793325
+    Node 8    3.868200454014853
+    Node 9    12.481321046584718
+    Node 10    -0.9924187747114287
+    Node 11    14.11780599299325
+Sigmoid Node 13
+    Inputs    Weights
+    Threshold    -6.608426015299582
+    Node 4    -7.918240973683686
+    Node 5    9.85019834076175
+    Node 6    10.407300698438366
+    Node 7    -6.63961865990614
+    Node 8    -2.244863645917297
+    Node 9    -2.226621215082648
+    Node 10    11.92791086607985
+    Node 11    -1.7403965650456938
+Sigmoid Node 14
+    Inputs    Weights
+    Threshold    2.2447430432101334
+    Node 4    13.385896528518566
+    Node 5    -11.899686117098714
+    Node 6    -19.110327105587356
+    Node 7    -12.676368469472067
+    Node 8    14.54500658183708
+    Node 9    7.155574035074056
+    Node 10    -9.575160303357919
+    Node 11    4.7164666021129635
+Sigmoid Node 15
+    Inputs    Weights
+    Threshold    -16.123937382521795
+    Node 4    6.83822799179436
+    Node 5    0.6783286462258921
+    Node 6    -19.313858320199643
+    Node 7    -13.834642841862575
+    Node 8    9.003681994150812
+    Node 9    22.054538251201137
+    Node 10    -9.74729010623907
+    Node 11    9.205342587557965
+Sigmoid Node 16
+    Inputs    Weights
+    Threshold    -9.607225226109705
+    Node 4    3.372820159668363
+    Node 5    8.941671330085448
+    Node 6    -3.7949139726323473
+    Node 7    -6.466125004025631
+    Node 8    6.344417474040806
+    Node 9    4.2364526714452095
+    Node 10    22.24764244019532
+    Node 11    3.303555959804305
+Class attack
+    Input
+    Node 0
+Class bot
+    Input
+    Node 1
+Class normal
+    Input
+    Node 2
+Class outlier
+    Input
+    Node 3
+
+
+Time taken to build model: 50.45 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on test split: 0.03 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       11554               98.7268 %
+Incorrectly Classified Instances       149                1.2732 %
+Kappa statistic                          0.9709
+Mean absolute error                      0.0119
+Root mean squared error                  0.0798
+Relative absolute error                  5.3953 %
+Root relative squared error             23.9368 %
+Total Number of Instances            11703     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.000    0.000    ?          0.000    ?          ?        0.732     0.052     attack
+                 0.710    0.000    0.991      0.710    0.827      0.834    0.949     0.830     bot
+                 0.998    0.002    0.996      0.998    0.997      0.996    1.000     0.998     normal
+                 0.999    0.037    0.984      0.999    0.992      0.972    0.995     0.997     outlier
+Weighted Avg.    0.987    0.026    ?          0.987    ?          ?        0.994     0.990     
+
+=== Confusion Matrix ===
+
+    a    b    c    d   <-- classified as
+    0    0    1    9 |    a = attack
+    0  314    8  120 |    b = bot
+    0    1 3109    4 |    c = normal
+    0    2    4 8131 |    d = outlier
+

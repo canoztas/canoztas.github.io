@@ -1,0 +1,56 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.ZeroR -batch-size 128
+Relation:     remaining_behavior_ext
+Instances:    34422
+Attributes:   10
+              inter_api_access_duration(sec)
+              api_access_uniqueness
+              sequence_length(count)
+              vsession_duration(min)
+              ip_type
+              behavior_type
+              num_sessions
+              num_users
+              num_unique_apis
+              source
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: outlier
+
+Time taken to build model: 0 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on test split: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        8137               69.5292 %
+Incorrectly Classified Instances      3566               30.4708 %
+Kappa statistic                          0     
+Mean absolute error                      0.2202
+Root mean squared error                  0.3334
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances            11703     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.001     attack
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.038     bot
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.266     normal
+                 1.000    1.000    0.695      1.000    0.820      ?        0.500     0.695     outlier
+Weighted Avg.    0.695    0.695    ?          0.695    ?          ?        0.500     0.556     
+
+=== Confusion Matrix ===
+
+    a    b    c    d   <-- classified as
+    0    0    0   10 |    a = attack
+    0    0    0  442 |    b = bot
+    0    0    0 3114 |    c = normal
+    0    0    0 8137 |    d = outlier
+

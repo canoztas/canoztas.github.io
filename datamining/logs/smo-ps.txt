@@ -1,0 +1,193 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 1 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4" -batch-size 128
+Relation:     remaining_behavior_ext
+Instances:    34422
+Attributes:   10
+              inter_api_access_duration(sec)
+              api_access_uniqueness
+              sequence_length(count)
+              vsession_duration(min)
+              ip_type
+              behavior_type
+              num_sessions
+              num_users
+              num_unique_apis
+              source
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: attack, bot
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.1184 * (standardized) inter_api_access_duration(sec)
+ +      -0.6186 * (standardized) api_access_uniqueness
+ +      -0.0382 * (standardized) sequence_length(count)
+ +      -0.4541 * (standardized) vsession_duration(min)
+ +       0      * (standardized) ip_type=datacenter
+ +      -0      * (standardized) ip_type=default
+ +       0      * (standardized) ip_type=google_bot
+ +       0      * (standardized) ip_type=private_ip
+ +       0.0049 * (standardized) num_sessions
+ +      -0.1112 * (standardized) num_users
+ +      -1.8021 * (standardized) num_unique_apis
+ +      -2.4656 * (standardized) source=F
+ +       2.9239
+
+Number of kernel evaluations: 29193 (70.92% cached)
+
+Classifier for classes: attack, normal
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.0001 * (standardized) inter_api_access_duration(sec)
+ +      -0.0012 * (standardized) api_access_uniqueness
+ +      -0.0012 * (standardized) sequence_length(count)
+ +      -0.0001 * (standardized) vsession_duration(min)
+ +      -0      * (standardized) ip_type=datacenter
+ +       0      * (standardized) ip_type=default
+ +      -0      * (standardized) ip_type=google_bot
+ +      -0      * (standardized) ip_type=private_ip
+ +       0.1126 * (standardized) num_sessions
+ +       1.9009 * (standardized) num_users
+ +      -0.0003 * (standardized) num_unique_apis
+ +       0      * (standardized) source=F
+ +       1.3061
+
+Number of kernel evaluations: 452220 (95.004% cached)
+
+Classifier for classes: attack, outlier
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0001 * (standardized) inter_api_access_duration(sec)
+ +       0      * (standardized) api_access_uniqueness
+ +       0.0001 * (standardized) sequence_length(count)
+ +      -0      * (standardized) vsession_duration(min)
+ +       0      * (standardized) ip_type=datacenter
+ +      -0      * (standardized) ip_type=default
+ +       0      * (standardized) ip_type=google_bot
+ +       0      * (standardized) ip_type=private_ip
+ +       0.0599 * (standardized) num_sessions
+ +      -0.1901 * (standardized) num_users
+ +      -0.0001 * (standardized) num_unique_apis
+ +      -0.0008 * (standardized) source=F
+ +       0.961 
+
+Number of kernel evaluations: 2734463 (83.872% cached)
+
+Classifier for classes: bot, normal
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.0012 * (standardized) inter_api_access_duration(sec)
+ +      -0.0076 * (standardized) api_access_uniqueness
+ +      -0.025  * (standardized) sequence_length(count)
+ +      -0.0014 * (standardized) vsession_duration(min)
+ +       0      * (standardized) ip_type=datacenter
+ +      -0      * (standardized) ip_type=default
+ +       0      * (standardized) ip_type=google_bot
+ +       0      * (standardized) ip_type=private_ip
+ +      -0.3104 * (standardized) num_sessions
+ +       0.1352 * (standardized) num_users
+ +       0.1957 * (standardized) num_unique_apis
+ +       1.2928 * (standardized) source=F
+ -       0.1867
+
+Number of kernel evaluations: 24932534 (85.041% cached)
+
+Classifier for classes: bot, outlier
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0      * (standardized) inter_api_access_duration(sec)
+ +      -0      * (standardized) api_access_uniqueness
+ +       0      * (standardized) sequence_length(count)
+ +      -0      * (standardized) vsession_duration(min)
+ +      -0      * (standardized) ip_type=datacenter
+ +       0      * (standardized) ip_type=default
+ +      -0      * (standardized) ip_type=google_bot
+ +      -0      * (standardized) ip_type=private_ip
+ +      -0      * (standardized) num_sessions
+ +     -19.2946 * (standardized) num_users
+ +       0.0034 * (standardized) num_unique_apis
+ +       0.0003 * (standardized) source=F
+ -       3.794 
+
+Number of kernel evaluations: 321226952 (41.079% cached)
+
+Classifier for classes: normal, outlier
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0      * (standardized) inter_api_access_duration(sec)
+ +       0.0001 * (standardized) api_access_uniqueness
+ +       0      * (standardized) sequence_length(count)
+ +       0      * (standardized) vsession_duration(min)
+ +       0      * (standardized) ip_type=datacenter
+ +      -0.0008 * (standardized) ip_type=default
+ +       0      * (standardized) ip_type=google_bot
+ +       0.0009 * (standardized) ip_type=private_ip
+ +      -0.0006 * (standardized) num_sessions
+ +     -21.0284 * (standardized) num_users
+ +       0.0002 * (standardized) num_unique_apis
+ +      -0.0019 * (standardized) source=F
+ -       4.2261
+
+Number of kernel evaluations: 351758750 (54.552% cached)
+
+
+
+Time taken to build model: 155.31 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on test split: 0.04 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       11535               98.5645 %
+Incorrectly Classified Instances       168                1.4355 %
+Kappa statistic                          0.967 
+Mean absolute error                      0.2515
+Root mean squared error                  0.3131
+Relative absolute error                114.2252 %
+Root relative squared error             93.9124 %
+Total Number of Instances            11703     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.000    0.000    ?          0.000    ?          ?        0.568     0.001     attack
+                 0.645    0.000    0.997      0.645    0.783      0.796    0.842     0.659     bot
+                 1.000    0.001    0.998      1.000    0.999      0.998    1.000     0.998     normal
+                 1.000    0.045    0.981      1.000    0.990      0.968    0.977     0.981     outlier
+Weighted Avg.    0.986    0.032    ?          0.986    ?          ?        0.978     0.972     
+
+=== Confusion Matrix ===
+
+    a    b    c    d   <-- classified as
+    0    0    1    9 |    a = attack
+    0  285    5  152 |    b = bot
+    0    1 3113    0 |    c = normal
+    0    0    0 8137 |    d = outlier
+

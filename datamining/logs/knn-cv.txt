@@ -1,0 +1,55 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.lazy.IBk -K 131 -W 0 -I -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.ManhattanDistance -R first-last\"" -batch-size 128
+Relation:     remaining_behavior_ext
+Instances:    34422
+Attributes:   10
+              inter_api_access_duration(sec)
+              api_access_uniqueness
+              sequence_length(count)
+              vsession_duration(min)
+              ip_type
+              behavior_type
+              num_sessions
+              num_users
+              num_unique_apis
+              source
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+IB1 instance-based classifier
+using 131 inverse-distance-weighted nearest neighbour(s) for classification
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       33134               96.2582 %
+Incorrectly Classified Instances      1288                3.7418 %
+Kappa statistic                          0.9138
+Mean absolute error                      0.0463
+Root mean squared error                  0.1343
+Relative absolute error                 21.0909 %
+Root relative squared error             40.5405 %
+Total Number of Instances            34422     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.000    0.000    ?          0.000    ?          ?        0.944     0.202     attack
+                 0.720    0.001    0.962      0.720    0.824      0.827    0.980     0.884     bot
+                 0.958    0.021    0.942      0.958    0.950      0.933    0.996     0.991     normal
+                 0.978    0.071    0.970      0.978    0.974      0.913    0.990     0.995     outlier
+Weighted Avg.    0.963    0.055    ?          0.963    ?          ?        0.992     0.989     
+
+=== Confusion Matrix ===
+
+     a     b     c     d   <-- classified as
+     0     0     1    21 |     a = attack
+     0   943    26   340 |     b = bot
+     0     7  8573   366 |     c = normal
+     0    30   497 23618 |     d = outlier
+
