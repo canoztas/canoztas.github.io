@@ -15,7 +15,7 @@
 	<table>
 		<thead>
 			<tr>
-				<h2 class="header">Aday Mühendis 11/04/2022 Geliş Listesi</h2>
+				<h2 class="header" id="hdrHeader">Aday Mühendis 11/04/2022 Geliş Listesi</h2>
 				<th>Ad Soyad</th>
 				<th>Takım</th>
 				<th>Pazartesi</th>
@@ -27,74 +27,7 @@
 				<th>varsa, not</th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr>
-				<td>Can Öztaş</td>
-				<td class="red-team">Red</td>
-				<td>Yok</td>
-				<td>Yok</td>
-				<td>Yok</td>
-				<td>Yok</td>
-				<td>Tüm gün</td>
-				<td>1</td>
-				<td>Bu hafta sınavlarım var</td>
-			</tr>
-			<tr>
-				<td>Aydan</td>
-				<td class="cti">CTI</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>12'den sonra</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>4,5</td>
-				<td>Örnek veri</td>
-			</tr>
-			<tr>
-				<td>Aydan</td>
-				<td class="cti">CTI</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>12'den sonra</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>4,5</td>
-				<td>Örnek veri</td>
-			</tr>
-			<tr>
-				<td>Aydan</td>
-				<td class="blue-team">Blue</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>12'den sonra</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>4,5</td>
-				<td>Örnek veri</td>
-			</tr>
-			<tr>
-				<td>Aydan</td>
-				<td class="cti">CTI</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>12'den sonra</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>4,5</td>
-				<td>Örnek veri</td>
-			</tr>
-			<tr>
-				<td>Aydan</td>
-				<td class="cti">CTI</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>12'den sonra</td>
-				<td>Tüm gün</td>
-				<td>Tüm gün</td>
-				<td>4,5</td>
-				<td>Örnek veri</td>
-			</tr>
-		
+		<tbody id="tbdMain">
 			
 
 		
@@ -105,3 +38,87 @@
   
 </body>
 </html>
+<script>
+
+	window.onload = function init(){
+
+		var d = new Date();
+		d.setDate(d.getDate() + (((1 + 7 - d.getDay()) % 7) || 7));
+		var jsonName = String(d).split(" ")[2] + "-" + String(d).split(" ")[1] + "-" + String(d).split(" ")[3] + ".json";
+		console.log(jsonName)
+		document.getElementById("hdrHeader").innerText = "Aday Mühendis " + String(d).split(" ")[2] + "/" + String(d).split(" ")[1] + "/" + String(d).split(" ")[3] +" Geliş Listesi";
+		
+		fetch(jsonName)
+    	.then(Response => Response.json())
+    	.then(data => {
+        console.log(data);
+  		var len = Object.keys(data).length;
+		var toAdd = document.getElementById("tbdMain");
+		  for(i=0;i<len;i++){
+			var row = document.createElement("tr");
+			var totalDays = 0;
+			if(data[i].monday=="Full")
+				totalDays++;
+			else if(data[i].monday=="Yok")
+				totalDays+=0;
+			else
+				totalDays+=0.5;
+
+			if(data[i].tuesday=="Full")
+				totalDays++;
+			else if(data[i].tuesday=="Yok")
+				totalDays+=0;
+			else
+				totalDays+=0.5;
+		
+			if(data[i].wednesday=="Full")
+				totalDays++;
+			else if(data[i].wednesday=="Yok")
+				totalDays+=0;
+			else
+				totalDays+=0.5;
+
+			if(data[i].thursday=="Full")
+				totalDays++;
+			else if(data[i].thursday=="Yok")
+				totalDays+=0;
+			else
+				totalDays+=0.5;
+
+			if(data[i].friday=="Full")
+				totalDays++;
+			else if(data[i].friday=="Yok")
+				totalDays+=0;
+			else
+				totalDays+=0.5;
+
+
+
+			row.innerHTML = `<td>${data[i].name}</td><td class="${data[i].team}">${data[i].team.split("-")[0]}</td><td>${data[i].monday}</td><td>${data[i].tuesday}</td><td>${data[i].wednesday}</td><td>${data[i].thursday}</td><td>${data[i].friday}</td><td>${totalDays}</td><td>${data[i].note}</td>`;
+			toAdd.appendChild(row)
+
+
+
+		  }
+
+
+    });
+
+
+
+
+
+	}
+	
+	
+
+
+
+
+
+
+
+	
+
+
+</script>
