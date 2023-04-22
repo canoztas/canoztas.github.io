@@ -151,7 +151,7 @@
     flush_res += combinations(global_suit["Spades"],3)
     
     flush_res = (flush_res/combinations(total_card,3)*100)
-    document.getElementById("flush").innerHTML = "Flush : %" + flush_res
+    document.getElementById("flush").innerHTML = "Flush : %" + flush_res.toFixed(3)
     
     
     
@@ -165,7 +165,7 @@
     straight_res += (global_rank[i]/total_card  * global_rank[i+1]/(total_card-1) * global_rank[1]/(total_card-2)) * 6
     }
     straight_res = (straight_res *100)
-    document.getElementById("straight").innerHTML = "Straight: %" + straight_res
+    document.getElementById("straight").innerHTML = "Straight: %" + straight_res.toFixed(3)
     
     
     var pair_res = 0
@@ -173,7 +173,7 @@
     pair_res += (global_rank[i]/total_card) * ((global_rank[i]-1)/(total_card-1))
     }
     pair_res = (pair_res * 100)
-    document.getElementById("pair").innerHTML = "Pair: %" + pair_res
+    document.getElementById("pair").innerHTML = "Pair: %" + pair_res.toFixed(3)
     
     if (flush_res > 6.11)
     document.getElementById("flush_time").style.color = "green"
@@ -190,9 +190,9 @@
     else
     document.getElementById("pair_time").style.color = "red"
     
-    document.getElementById("flush_time").innerHTML = "Flush : %" + (6.11-flush_res)
-    document.getElementById("straight_time").innerHTML = "Straight : %" + (straight_res - 3.30)
-    document.getElementById("pair_time").innerHTML = "Pair : %" + (pair_res - 7.47)
+    document.getElementById("flush_time").innerHTML = "Flush : %" + (flush_res - 6.11).toFixed(3)
+    document.getElementById("straight_time").innerHTML = "Straight : %" + (straight_res - 3.30).toFixed(3)
+    document.getElementById("pair_time").innerHTML = "Pair : %" + (pair_res - 7.47).toFixed(3)
     
     }
     
