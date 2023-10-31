@@ -75,7 +75,7 @@ for b in brands["results"]:
 
 
 
-            df = df._append({'name':prod_name ,'reference':ref_name,'brand':brand_name,'family':family_name ,'attributes':attr,'gencode':gnc},ignore_index=True)
+            df = df._append({'name':prod_name ,'reference'ref_name,'brand':brand_name,'family':family_name ,'attributes':attr,'gencode':gnc},ignore_index=True)
 
             with pd.ExcelWriter('crossref'+str(PAGE)+'.xlsx',mode="a",engine="openpyxl",if_sheet_exists="overlay") as writer:
                 df.to_excel(writer, sheet_name="Sheet1",header=None, startrow=writer.sheets["Sheet1"].max_row,index=False)
