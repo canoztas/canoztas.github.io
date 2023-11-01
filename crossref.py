@@ -72,7 +72,6 @@ for b in brands["results"]:
 
                 with pd.ExcelWriter('crossref' + str(PAGE) + '.xlsx', mode="a", engine="openpyxl", if_sheet_exists="overlay") as writer:
                     df.to_excel(writer, sheet_name="Sheet1", header=None, startrow=writer.sheets["Sheet1"].max_row, index=False)
-                    writer.close()
 
             except requests.exceptions.RequestException as e:
                 print('error on ' + c['id'])
