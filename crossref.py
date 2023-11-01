@@ -35,49 +35,51 @@ for b in brands["results"]:
 
        
         for c in cr["results"]:
-
-            response = requests.get('https://catalog.hifi-filter.com/api/cross-reference/'+c['id'])
-            product = response.json()
-
-            df = pd.DataFrame(columns=['name','reference','brand','family','attributes','gencode'])
-            
-
-
             try:
-                prod_name = product['products'][0]['number']
-            except:
-                prod_name = 'NULL'
+	            response = requests.get('https://catalog.hifi-filter.com/api/cross-reference/'+c['id'])
+	            product = response.json()
 
-            try:
-                ref_name = product['products'][0]['reference']
-            except:
-                ref_name = 'NULL'
-
-            try:
-                brand_name = product['brand']['name']
-            except:
-                brand_name = 'NULL'
-
-            try:
-                family_name = product['products'][0]['family']
-            except:
-                family_name = 'NULL'
-
-            try:
-                attr = product['products'][0]['attributes']
-            except:
-                attr = 'NULL'
-
-            try:
-                gnc = product['products'][0]['gencode']
-            except:
-                gnc = 'NULL'
+	            df = pd.DataFrame(columns=['name','reference','brand','family','attributes','gencode'])
+	            
 
 
+	            try:
+	                prod_name = product['products'][0]['number']
+	            except:
+	                prod_name = 'NULL'
 
-            df = df._append({'name':prod_name ,'reference'ref_name,'brand':brand_name,'family':family_name ,'attributes':attr,'gencode':gnc},ignore_index=True)
+	            try:
+	                ref_name = product['products'][0]['reference']
+	            except:
+	                ref_name = 'NULL'
 
-            with pd.ExcelWriter('crossref'+str(PAGE)+'.xlsx',mode="a",engine="openpyxl",if_sheet_exists="overlay") as writer:
-                df.to_excel(writer, sheet_name="Sheet1",header=None, startrow=writer.sheets["Sheet1"].max_row,index=False)
+	            try:
+	                brand_name = product['brand']['name']
+	            except:
+	                brand_name = 'NULL'
+
+	            try:
+	                family_name = product['products'][0]['family']
+	            except:
+	                family_name = 'NULL'
+
+	            try:
+	                attr = product['products'][0]['attributes']
+	            except:
+	                attr = 'NULL'
+
+	            try:
+	                gnc = product['products'][0]['gencode']
+	            except:
+	                gnc = 'NULL'
+
+
+
+	            df = df._append({'name':prod_name ,'reference'ref_name,'brand':brand_name,'family':family_name ,'attributes':attr,'gencode':gnc},ignore_index=True)
+
+	            with pd.ExcelWriter('crossref'+str(PAGE)+'.xlsx',mode="a",engine="openpyxl",if_sheet_exists="overlay") as writer:
+	                df.to_excel(writer, sheet_name="Sheet1",header=None, startrow=writer.sheets["Sheet1"].max_row,index=False)
+	        except:
+	        	print("error on" + c['id'])
 
 
