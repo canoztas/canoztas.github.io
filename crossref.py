@@ -24,7 +24,7 @@ main_df.to_excel('crossref'+str(PAGE)+'.xlsx',index=True,startrow=0)
 for b in brands["results"]:
     if b['id']=='f865c8b7-d2c2-41ce-896b-bc4d3a31a4e0':
         continue
-    iterator=1
+    iterator=2
     while True:
         response = requests.get('https://catalog.hifi-filter.com/api/cross-reference/brand/'+b['id']+'/reference?p='+str(iterator))
         cr = response.json()
@@ -44,7 +44,7 @@ for b in brands["results"]:
 
 
             try:
-                prod_name = product['products'][0]['number']
+                prod_name = product['reference']
             except:
                 prod_name = 'NULL'
 
