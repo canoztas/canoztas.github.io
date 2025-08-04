@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tukkan Consultancy and Analytics | Cybersecurity Services</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Share Tech Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Share Tech Mono"', 'monospace'],
+                    },
+                    colors: {
+                        'brand-green': '#39FF14',
+                        'brand-purple': '#9932CC', // Malware
+                        'brand-blue': '#00BFFF',   // DFIR & Blue Team
+                        'brand-red': '#FF003C',    // Pentest
+                        'brand-orange': '#FF8C00', // Training
+                        'brand-grey': '#9E9E9E',   // OSINT
+                        'brand-yellow': '#FFD700', // CTF
+                        'brand-crimson': '#DC143C',// Cert Training
+                        'brand-orchid': '#DA70D6', // AI
+                        'brand-dark': '#0D1117',
+                        'brand-gray': '#161B22',
+                        'brand-light-gray': '#21262D',
+                    },
+                    animation: {
+                        'scroll': 'scroll 40s linear infinite',
+                        'blink': 'blink 1s step-end infinite',
+                        'gradient-shift': 'gradient-shift 6s ease infinite',
+                    },
+                    keyframes: {
+                        scroll: {
+                          '0%': { transform: 'translateX(0)' },
+                          '100%': { transform: 'translateX(-100%)' },
+                        },
+                        blink: {
+                            'from, to': { color: 'transparent' },
+                            '50%': { color: '#39FF14' },
+                        },
+                        'gradient-shift': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        }
+                    },
+                    boxShadow: {
+                        'glow-green': '0 0 15px 2px rgba(57, 255, 20, 0.4)',
+                        'glow-purple': '0 0 15px 2px rgba(153, 50, 204, 0.4)',
+                        'glow-red': '0 0 15px 2px rgba(255, 0, 60, 0.4)',
+                        'glow-orange': '0 0 15px 2px rgba(255, 140, 0, 0.4)',
+                        'glow-blue': '0 0 15px 2px rgba(0, 191, 255, 0.4)',
+                        'glow-grey': '0 0 15px 2px rgba(158, 158, 158, 0.4)',
+                        'glow-yellow': '0 0 15px 2px rgba(255, 215, 0, 0.4)',
+                        'glow-crimson': '0 0 15px 2px rgba(220, 20, 60, 0.4)',
+                        'glow-orchid': '0 0 15px 2px rgba(218, 112, 214, 0.4)',
+                    },
+                    textShadow: {
+                        'green': '0 0 8px rgba(57, 255, 20, 0.7)',
+                        'blue': '0 0 8px rgba(0, 191, 255, 0.6)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Apply custom text shadow utility */
+        .text-shadow-green {
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.7);
+        }
+        .text-shadow-blue {
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+        }
+        
+        /* Blinking cursor for links */
+        .blinking-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+            margin-left: 0.25rem;
+        }
+
+        /* Simple animation for hero text */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .fade-in-delay-1 { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
+        .fade-in-delay-3 { animation-delay: 0.6s; }
+
+        /* Canvas style for matrix rain */
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .ai-gradient-text {
+            background: linear-gradient(to right, #DA70D6, #00BFFF, #39FF14, #DA70D6);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 4s linear infinite;
+        }
+        
+        .ai-gradient-bg {
+            background: linear-gradient(to right, #DA70D6, #00BFFF, #39FF14, #DA70D6);
+            background-size: 200% auto;
+            animation: gradient-shift 4s linear infinite;
+        }
+
+        .ai-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            margin: -2px;
+            border-radius: 0.75rem; /* Corresponds to rounded-xl */
+            background: linear-gradient(to right, #DA70D6, #00BFFF, #39FF14, #DA70D6);
+            background-size: 200% auto;
+            animation: gradient-shift 4s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-300 antialiased font-sans">
+
+    <!-- Header -->
+    <header class="bg-brand-dark/80 backdrop-blur-sm sticky top-0 z-50 border-b border-brand-light-gray">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">
+                Tukkan<span class="text-brand-green">.</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#services" class="hover:text-brand-green transition-colors duration-300">Services</a>
+                <a href="#about" class="hover:text-brand-green transition-colors duration-300">About</a>
+                <a href="#certifications" class="hover:text-brand-green transition-colors duration-300">Certifications</a>
+                <a href="#contact" class="hover:text-brand-green transition-colors duration-300">Contact</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-brand-green text-brand-dark font-bold px-5 py-2 rounded-lg hover:bg-opacity-80 transition-all duration-300">
+                Get Quote
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#services" class="block py-2 hover:text-brand-green">Services</a>
+            <a href="#about" class="block py-2 hover:text-brand-green">About</a>
+            <a href="#certifications" class="block py-2 hover:text-brand-green">Certifications</a>
+            <a href="#contact" class="block py-2 hover:text-brand-green">Contact</a>
+             <a href="#contact" class="mt-2 block w-full text-center bg-brand-green text-brand-dark font-bold px-5 py-2 rounded-lg hover:bg-opacity-80 transition-all duration-300">
+                Get Quote
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
+             <canvas id="matrix-canvas"></canvas>
+             <div class="absolute inset-0 bg-brand-dark opacity-70 z-10"></div>
+            <div class="container mx-auto px-6 z-20 relative">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 fade-in" style="font-family: 'Share Tech Mono', monospace;">
+                    Securing Your Digital Frontier
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8 fade-in fade-in-delay-1">
+                    Tukkan Consultancy and Analytics provides elite cybersecurity services including penetration testing, malware analysis, and DFIR to defend your most critical digital assets.
+                </p>
+                <a href="#contact" class="bg-brand-green text-brand-dark font-bold py-3 px-8 rounded-lg text-lg hover:scale-105 transform transition-transform duration-300 fade-in fade-in-delay-2">
+                    Request a Consultation
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-brand-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white text-shadow-blue">Our Core Services</h2>
+                    <p class="text-gray-400 mt-2">Comprehensive solutions to identify, protect, and respond to cyber threats.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Service Card 1: Pentesting -->
+                    <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border border-dashed border-brand-red/50 hover:border-brand-red hover:shadow-glow-red transition-all duration-300"
+                         data-color="red"
+                         data-title="Penetration Testing"
+                         data-details='["Web & API Pentesting", "Mobile Application Pentesting", "Internal & External Network Pentesting", "Active Directory Pentesting", "Wireless & DDoS Testing", "Static Code Analysis", "Social Engineering & Malware Simulation"]'
+                         data-report-text="Download Sample Report"
+                         data-report-link="#">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="bg-brand-red/10 text-brand-red rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Penetration Testing</h3>
+                                <p class="text-gray-400">Simulate real-world attacks to uncover critical vulnerabilities.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2: Training -->
+                    <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border border-dashed border-brand-orange/50 hover:border-brand-orange hover:shadow-glow-orange transition-all duration-300"
+                         data-color="orange"
+                         data-title="Cybersecurity Training"
+                         data-pre-text="Trainings are specially crafted based on client needs, level, and background."
+                         data-details='["Practical Pentesting (Web, API, Mobile)", "Network & Wireless Security", "Blue Teaming & Threat Hunting", "SIEM & Threat Detection"]'
+                         data-report-text="Request Course Catalog"
+                         data-report-link="#">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="bg-brand-orange/10 text-brand-orange rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.084a1 1 0 0 0 0 1.838l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12v5c0 3 4 5 6 5s6-2 6-5v-5"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Cybersecurity Training</h3>
+                                <p class="text-gray-400">Empower your team with practical, hands-on skills.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 3: Malware & RE -->
+                    <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border border-dashed border-brand-purple/50 hover:border-brand-purple hover:shadow-glow-purple transition-all duration-300"
+                         data-color="purple"
+                         data-title="Malware Analysis & Reverse Engineering"
+                         data-details='["Windows Malware Analysis", "Android Malware Analysis", "Linux/macOS Malware Analysis", "Application Reverse Engineering"]'
+                         data-report-text="Download Sample Report"
+                         data-report-link="#">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="bg-brand-purple/10 text-brand-purple rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bug"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M4.5 9.5a5.5 5.5 0 0 0 11 0"/><path d="M2.2 12.8A5.5 5.5 0 0 0 7.5 20h9a5.5 5.5 0 0 0 5.3-7.2A5.5 5.5 0 0 0 16.5 9.5h-9Z"/><path d="M15 13H9"/><path d="M12 16v-3"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Malware & Reverse Engineering</h3>
+                                <p class="text-gray-400">Dissect threats to understand their impact.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4: DFIR -->
+                    <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border border-dashed border-brand-blue/50 hover:border-brand-blue hover:shadow-glow-blue transition-all duration-300"
+                         data-color="blue"
+                         data-title="Digital Forensics and Incident Response"
+                         data-details='["Emergency Incident Response (24/7)", "Digital Forensic Investigation", "Compromise & Readiness Assessments", "Ransomware Negotiation & Recovery"]'
+                         data-report-text="Download Sample Report"
+                         data-report-link="#">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="bg-brand-blue/10 text-brand-blue rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-siren"><path d="M12 2c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z"/><path d="M12 12v-4"/><path d="M12 16h.01"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">DFIR</h3>
+                                <p class="text-gray-400">Respond to and recover from security incidents.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5: OSINT -->
+                    <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border border-dashed border-brand-grey/50 hover:border-brand-grey hover:shadow-glow-grey transition-all duration-300"
+                         data-color="grey"
+                         data-title="OSINT Research"
+                         data-details='["Cyber Threat Intelligence Reports", "Data Leakage Reports", "Dark Web & Forum Research", "Attack Surface Mapping"]'
+                         data-report-text="Download Sample Report"
+                         data-report-link="#">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="bg-brand-grey/10 text-brand-grey rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">OSINT Research</h3>
+                                <p class="text-gray-400">Uncover hidden risks from public data sources.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 6: CTF Creation -->
+                    <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border border-dashed border-brand-yellow/50 hover:border-brand-yellow hover:shadow-glow-yellow transition-all duration-300"
+                         data-color="yellow"
+                         data-title="CTF Creation"
+                         data-pre-text="For universities, students, professionals, and HR."
+                         data-details='["Jeopardy Style (Web, Pwn, RE, etc.)", "Standalone Pentest Machines", "Active Directory Pentest Labs", "Wireless Pentest Environments", "Log Analysis Challenges"]'
+                         data-report-text="Request a Demo"
+                         data-report-link="#">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="bg-brand-yellow/10 text-brand-yellow rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">CTF Creation</h3>
+                                <p class="text-gray-400">Custom Capture-The-Flag events and challenges.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 7: Certification Training -->
+                    <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border border-dashed border-brand-crimson/50 hover:border-brand-crimson hover:shadow-glow-crimson transition-all duration-300"
+                         data-color="crimson"
+                         data-title="Certification Training"
+                         data-pre-text="Custom training for every major certification from Offensive Security, SANS, CREST, EC-Council, INE, & TCM Security with a 98% pass rate."
+                         data-details='["OSCP / OSCE / OSWE / OSWP", "CREST CRT / CPSA", "SANS GREM / GPEN / GCFA", "CEH / eWAPTX"]'
+                         data-report-text="View Pass Rates"
+                         data-report-link="#">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="bg-brand-crimson/10 text-brand-crimson rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Certification Training</h3>
+                                <p class="text-gray-400">Custom certification training with a 98% pass rate.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 8: AI in Security -->
+                    <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border-2 hover:border-brand-green transition-all duration-300 relative ai-wrapper"
+                         data-color="ai"
+                         data-title="AI in Security"
+                         data-pre-text="With our team of AI experts, we provide AI-based solutions for specific problems."
+                         data-details='["Android Malware Detection", "Automated Malware Analysis with AI", "Anomaly Detection in Network Logs"]'
+                         data-report-text="Contact us for details."
+                         data-report-link="">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="ai-gradient-bg rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-circuit"><path d="M12 5a3 3 0 1 0-5.993.25a3 3 0 0 0 5.993-.25m0 0a3 3 0 1 0 5.993.25a3 3 0 0 0-5.993-.25m-1.34 9.75A3.001 3.001 0 1 0 4.84 18a3 3 0 0 0 5.82-3.25m5.499 0a3.001 3.001 0 1 0-5.641 3.25a3 3 0 0 0 5.64-3.25m-2.159-5.25a3 3 0 1 0-5.993.25a3 3 0 0 0 5.993-.25"/><path d="M12 12v-2m-2.099 4.901.9-1.8m4.398 1.8.9-1.8m-3.1 3.6 1.8-.9m-5.4 0 1.8.9"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">AI in Security</h3>
+                                <p class="text-gray-400">Leveraging AI for defense & securing AI systems.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 9: Blue Team Consultancy -->
+                     <div class="service-card p-8 cursor-pointer bg-brand-light-gray rounded-xl border border-dashed border-brand-blue/50 hover:border-brand-blue hover:shadow-glow-blue transition-all duration-300"
+                         data-color="blue"
+                         data-title="Blue Team Consultancy"
+                         data-pre-text="We provide expert implementation, configuration, and optimization for leading security platforms to enhance your detection and response capabilities."
+                         data-details='["QRadar", "Splunk", "ELK Stack", "Wazuh", "Palo Alto XSOAR", "Crowdstrike Falcon", "SentinelOne"]'
+                         data-report-text="Contact us for details."
+                         data-report-link="">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="bg-brand-blue/10 text-brand-blue rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-half"><path d="M12 22V2"/><path d="M12 22c-4.42 0-8 3.58-8-8V5l8-3"/><path d="M12 22c4.42 0 8-3.58 8-8V5l-8-3"/></svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Blue Team Consultancy</h3>
+                                <p class="text-gray-400">Strengthen your defensive capabilities with our expert guidance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white text-shadow-blue">About Tukkan Consultancy</h2>
+                        <p class="text-gray-400 mb-4">
+                            Founded by a team of passionate cybersecurity veterans, Tukkan Consultancy and Analytics was born from a desire to provide proactive, intelligence-driven security solutions. We believe that the best defense is a strong offense.
+                        </p>
+                        <p class="text-gray-400">
+                            Our mission is to empower organizations by making elite cybersecurity expertise accessible. We partner with our clients to build resilient security postures, transforming them from targets into fortified opponents.
+                        </p>
+                    </div>
+                    <div class="bg-brand-gray p-8 rounded-xl border border-dashed border-brand-blue/50">
+                        <h3 class="text-2xl font-semibold text-white mb-4 text-shadow-green">Our Philosophy</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-brand-green mr-3 mt-1">></span>
+                                <span><strong class="text-white">Adversary Mindset:</strong> We think like attackers to provide a realistic assessment of your security risks.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-brand-blue mr-3 mt-1">></span>
+                                <span><strong class="text-white">Actionable Intelligence:</strong> We deliver clear, concise reports with prioritized, actionable recommendations, not just data dumps.</span>
+                            </li>
+                             <li class="flex items-start">
+                                <span class="text-brand-purple mr-3 mt-1">></span>
+                                <span><strong class="text-white">Collaborative Partnership:</strong> We work with you as an extension of your team, ensuring knowledge transfer and long-term security improvement.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-20 bg-brand-gray overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white text-shadow-blue">Industry-Recognized Certifications</h2>
+                    <p class="text-gray-400 mt-2">Our expertise is validated by the most respected organizations in security.</p>
+                </div>
+            </div>
+            <div class="relative w-full">
+                <div class="flex animate-scroll">
+                    <!-- To make the loop seamless, the list of logos is duplicated -->
+                    <div class="flex w-full justify-around items-center flex-shrink-0">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=SANS" alt="SANS Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=GREM" alt="GREM Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=OSCP" alt="OSCP Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=OSCE" alt="OSCE Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=OSWE" alt="OSWE Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=OSWP" alt="OSWP Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=CREST" alt="CREST Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                    </div>
+                     <div class="flex w-full justify-around items-center flex-shrink-0" aria-hidden="true">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=SANS" alt="SANS Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=GREM" alt="GREM Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=OSCP" alt="OSCP Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=OSCE" alt="OSCE Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=OSWE" alt="OSWE Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=OSWP" alt="OSWP Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                        <img src="https://placehold.co/200x100/161B22/39FF14?text=CREST" alt="CREST Logo" class="h-16 mx-8 grayscale hover:grayscale-0 transition-all duration-300" style="filter: drop-shadow(0 0 2px #39FF14);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-brand-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white text-shadow-blue">Ready to Fortify Your Defenses?</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+                    Let's talk about your security challenges. Reach out for a confidential consultation and find out how we can help protect your organization.
+                </p>
+                <div class="mt-8">
+                    <a href="mailto:contact@tukkan.com" class="inline-block bg-brand-green text-brand-dark font-bold py-3 px-8 rounded-lg text-lg hover:scale-105 transform transition-transform duration-300">
+                        contact@tukkan.com
+                    </a>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">For sensitive matters, please request our PGP key.</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
+        <div id="modal-content" class="bg-brand-gray w-full max-w-2xl rounded-lg border border-dashed p-8 relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl">&times;</button>
+            <h3 id="modal-title" class="text-2xl font-bold text-white text-shadow-green mb-4"></h3>
+            <p id="modal-pre-text" class="text-gray-300 mb-4"></p>
+            <ul id="modal-details" class="list-disc list-inside text-gray-400 space-y-2 mb-6">
+                <!-- Details will be populated by JS -->
+            </ul>
+            <a id="modal-link" href="#" class="font-semibold hover:underline blinking-cursor"></a>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-brand-gray border-t border-brand-light-gray">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Tukkan Consultancy and Analytics. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile menu toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+
+        // --- Service Modal Logic ---
+        const serviceCards = document.querySelectorAll('.service-card');
+        const modal = document.getElementById('service-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPreText = document.getElementById('modal-pre-text');
+        const modalDetails = document.getElementById('modal-details');
+        const modalLink = document.getElementById('modal-link');
+        const modalContent = document.getElementById('modal-content');
+
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.dataset.title;
+                const color = card.dataset.color;
+                const preText = card.dataset.preText || '';
+                const details = JSON.parse(card.dataset.details || '[]');
+                const reportText = card.dataset.reportText;
+                const reportLink = card.dataset.reportLink;
+                
+                modalTitle.textContent = title;
+                
+                modalPreText.textContent = preText;
+                modalPreText.style.display = preText ? 'block' : 'none';
+
+                modalDetails.innerHTML = '';
+                details.forEach(detail => {
+                    const li = document.createElement('li');
+                    li.textContent = detail;
+                    modalDetails.appendChild(li);
+                });
+                
+                modalLink.textContent = reportText;
+                modalLink.href = reportLink;
+
+                if (!reportLink) {
+                    modalLink.removeAttribute('href');
+                }
+                
+                // Reset classes
+                modalContent.className = 'bg-brand-gray w-full max-w-2xl rounded-lg border border-dashed p-8 relative';
+                modalLink.className = 'font-semibold hover:underline blinking-cursor';
+                modalTitle.classList.remove('ai-gradient-text');
+                
+                // Apply new classes based on color
+                switch (color) {
+                    case 'green':
+                        modalContent.classList.add('border-brand-green', 'shadow-glow-green');
+                        modalLink.classList.add('text-brand-green');
+                        break;
+                    case 'orange':
+                        modalContent.classList.add('border-brand-orange', 'shadow-glow-orange');
+                        modalLink.classList.add('text-brand-orange');
+                        break;
+                    case 'purple':
+                        modalContent.classList.add('border-brand-purple', 'shadow-glow-purple');
+                        modalLink.classList.add('text-brand-purple');
+                        break;
+                    case 'blue':
+                        modalContent.classList.add('border-brand-blue', 'shadow-glow-blue');
+                        modalLink.classList.add('text-brand-blue');
+                        break;
+                    case 'grey':
+                        modalContent.classList.add('border-brand-grey', 'shadow-glow-grey');
+                        modalLink.classList.add('text-brand-grey');
+                        break;
+                    case 'yellow':
+                        modalContent.classList.add('border-brand-yellow', 'shadow-glow-yellow');
+                        modalLink.classList.add('text-brand-yellow');
+                        break;
+                    case 'crimson':
+                        modalContent.classList.add('border-brand-crimson', 'shadow-glow-crimson');
+                        modalLink.classList.add('text-brand-crimson');
+                        break;
+                    case 'ai':
+                        modalContent.classList.add('ai-wrapper', 'border-transparent');
+                        modalLink.classList.add('ai-gradient-text');
+                        modalTitle.classList.add('ai-gradient-text');
+                        break;
+                    default:
+                        modalContent.classList.add('border-brand-green', 'shadow-glow-green');
+                        modalLink.classList.add('text-brand-green');
+                }
+
+                modal.classList.remove('hidden');
+            });
+        });
+
+        const hideModal = () => {
+            modal.classList.add('hidden');
+        }
+
+        closeModal.addEventListener('click', hideModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+
+
+        // --- Matrix Rain Effect ---
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let resizeTimer;
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+            // Recalculate columns on resize
+            const fontSize = 16;
+            const columns = canvas.width / fontSize;
+            rainDrops.length = 0; // Clear existing drops
+            for (let x = 0; x < columns; x++) {
+                rainDrops[x] = 1;
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(setCanvasSize, 100);
+        });
+        
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '01234e6789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const rainDrops = [];
+
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(13, 17, 23, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                
+                // Add color variation to the rain
+                const random = Math.random();
+                if (random > 0.997) {
+                    ctx.fillStyle = '#DA70D6'; // Orchid
+                } else if (random > 0.995) {
+                    ctx.fillStyle = '#00BFFF'; // Blue
+                } else {
+                    ctx.fillStyle = '#39FF14'; // Green
+                }
+
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+        
+        setCanvasSize();
+        setInterval(draw, 33);
+
+    </script>
+
+</body>
+</html>
