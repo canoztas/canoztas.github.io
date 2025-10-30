@@ -2,14 +2,14 @@ import type { SiteConfig } from '~/types'
 
 const config: SiteConfig = {
   // Absolute URL to the root of your published site, used for generating links and sitemaps.
-  site: 'https://balpars.com',
+  site: 'https://canoztas.github.io/',
   // The name of your site, used in the title and for SEO.
-  title: 'Balpars Cyber Journey',
+  title: 'Eustache Trying to Escape Matrix',
   // The description of your site, used for SEO and RSS feed.
   description:
-    'Balpars Cyber Journey is a blog mainly about Cyber Security.',
+    'Blog about Cyber Security, Computer Science, for now',
   // The author of the site, used in the footer, SEO, and RSS feed.
-  author: 'balpars',
+  author: 'eustache',
   // Keywords for SEO, used in the meta tags.
   tags: ['cybersecurity', 'ctf', 'cyber research', 'blue team', 'red team', 'purple team'],
   // Path to the image used for generating social media previews.
@@ -42,7 +42,7 @@ const config: SiteConfig = {
     },
     {
       name: 'GitHub',
-      url: 'https://github.com/balpars',
+      url: 'https://github.com/canoztas',
       external: true,
     },
   ],
@@ -52,7 +52,7 @@ const config: SiteConfig = {
     mode: 'select',
     // The default theme identifier, used when themeMode is "select" or "light-dark-auto".
     // Make sure this is one of the themes listed in `themes` or "auto" for "light-dark-auto" mode.
-    default: 'kanagawa-wave',
+    default: 'synthwave-84',
     // Shiki themes to bundle with the site.
     // https://expressive-code.com/guides/themes/#using-bundled-themes
     // These will be used to theme the entire site along with syntax highlighting.
@@ -151,10 +151,10 @@ const config: SiteConfig = {
   },
   // Social links to display in the footer.
   socialLinks: {
-    github: 'https://github.com/balpars',
+    github: 'https://github.com/canoztas',
 //  mastodon: 'https://github.com/stelcodes/multiterm-astro',
 //    email: 'https://github.com/stelcodes/multiterm-astro',
-    linkedin: 'https://www.linkedin.com/in/balpars/',
+    linkedin: 'https://www.linkedin.com/in/can-oztas/',
 //    bluesky: 'https://github.com/stelcodes/multiterm-astro',
 //    twitter: 'https://github.com/stelcodes/multiterm-astro',
     rss: true, // Set to true to include an RSS feed link in the footer
