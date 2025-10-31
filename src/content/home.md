@@ -4,8 +4,6 @@ avatarImage:
   alt: 'My avatar'
 ---
 
-# ```Eustache Trying to Escape Matrix```
-
 ### *W.3.L.C.0.M.3.*
 
 This blog is my personal journey into the digital systems that define our reality. We're diving deep into the binary shadows and cyber-secrets, focusing on:
@@ -26,7 +24,6 @@ This blog is my personal journey into the digital systems that define our realit
 My goal is to explore, learn, and share the exploits. This is a place for the curious, the technical, and anyone else who suspects there's more to our reality than meets the eye.
 
 ---
+### Welcome to the escape.
 
-> ### Welcome to the escape.
->
 > *Let's find out how deep this rabbit hole goes.*
