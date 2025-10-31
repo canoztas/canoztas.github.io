@@ -21,7 +21,7 @@ This blog is my personal journey into the digital systems that define our realit
 * `The Logic that Binds the Galaxy (Algorithms)`
 * `Mastering the Core Shell (OS & CS)`
 
-My goal is to explore, learn, and share the exploits. This is a place for the curious, the technical, and anyone else who suspects there's more to our reality than meets the eye.
+My goal is to explore, learn, and share.
 
 ---
 ### Welcome to the escape.
