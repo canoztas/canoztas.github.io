@@ -52,7 +52,7 @@ const config: SiteConfig = {
     mode: 'select',
     // The default theme identifier, used when themeMode is "select" or "light-dark-auto".
     // Make sure this is one of the themes listed in `themes` or "auto" for "light-dark-auto" mode.
-    default: 'synthwave-84',
+    default: 'github-dark',
     // Shiki themes to bundle with the site.
     // https://expressive-code.com/guides/themes/#using-bundled-themes
     // These will be used to theme the entire site along with syntax highlighting.
@@ -126,28 +126,18 @@ const config: SiteConfig = {
     // Optional overrides for specific themes to customize colors.
     // Their values can be either a literal color (hex, rgb, hsl) or another theme key.
     // See themeKeys list in src/types.ts for available keys to override and reference.
-    overrides: {
-      // Improve readability for aurora-x theme
-      // 'aurora-x': {
-      //   background: '#292929FF',
-      //   foreground: '#DDDDDDFF',
-      //   warning: '#FF7876FF',
-      //   important: '#FF98FFFF',
-      //   note: '#83AEFFFF',
-      // },
-      // Make the GitHub dark theme a little cuter
-      // 'github-light': {
-      //   accent: 'magenta',
-      //   heading1: 'magenta',
-      //   heading2: 'magenta',
-      //   heading3: 'magenta',
-      //   heading4: 'magenta',
-      //   heading5: 'magenta',
-      //   heading6: 'magenta',
-      //   separator: 'magenta',
-      //   link: 'list',
-      // },
-    },
+    // Custom "Matrix" theme based on github-dark
+      'github-dark': {
+        background: '#000000', // Pure black background
+        foreground: '#00FF00', // Bright green text
+        accent: '#00FF00',
+        link: '#32CD32', // Lime green for links
+        heading1: '#00FF00',
+        heading2: '#00FF00',
+        heading3: '#00FF00',
+        // You would continue to override other keys (like 'keyword', 'string', 'comment')
+        // to different shades of green as needed.
+      }
   },
   // Social links to display in the footer.
   socialLinks: {
