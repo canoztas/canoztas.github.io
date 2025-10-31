@@ -127,16 +127,33 @@ const config: SiteConfig = {
     // Their values can be either a literal color (hex, rgb, hsl) or another theme key.
     // See themeKeys list in src/types.ts for available keys to override and reference.
     // Custom "Matrix" theme based on github-dark
+overrides: {
+      // Custom "Matrix" theme
       'github-dark': {
+        // Page colors
         background: '#000000', // Pure black background
-        foreground: '#00FF00', // Bright green text
-        accent: '#00FF00',
-        link: '#32CD32', // Lime green for links
+        foreground: '#00E600', // Bright green text
+        accent: '#00FF00',     // Brightest green
+        link: '#39FF14',       // Neon green for links
+        separator: '#228B22',   // Dark green
+        
+        // Headings
         heading1: '#00FF00',
-        heading2: '#00FF00',
-        heading3: '#00FF00',
-        // You would continue to override other keys (like 'keyword', 'string', 'comment')
-        // to different shades of green as needed.
+        heading2: '#00E600',
+        heading3: '#00E600',
+        heading4: '#00E600',
+        heading5: '#00E600',
+        heading6: '#00E600',
+
+        // Code syntax highlighting
+        keyword: '#00B300',    // 'const', 'import'
+        string: '#39FF14',     // 'strings'
+        comment: '#228B22',     // comments
+        function: '#00FF00',   // functionName
+        variable: '#00E600',   // variableName
+        number: '#39FF14',
+        property: '#00E600',
+        parameter: '#00E600',
       }
   },
   // Social links to display in the footer.
