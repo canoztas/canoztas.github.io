@@ -127,7 +127,7 @@ const config: SiteConfig = {
     // Their values can be either a literal color (hex, rgb, hsl) or another theme key.
     // See themeKeys list in src/types.ts for available keys to override and reference.
     // Custom "Matrix" theme based on github-dark
-overrides: {
+    overrides: {
       // Custom "Matrix" theme
       'github-dark': {
         // Page colors
@@ -154,7 +154,7 @@ overrides: {
         number: '#39FF14',
         property: '#00E600',
         parameter: '#00E600',
-      }
+      },
   },
   // Social links to display in the footer.
   socialLinks: {
