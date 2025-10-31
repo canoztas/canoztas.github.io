@@ -4,7 +4,29 @@ avatarImage:
   alt: 'My avatar'
 ---
 
-**Welcome!** 
-Balpars Cyber Journey is a blog mainly about **Cyber Security**.
-Here I will share my progress and learnings as I continue in the path of the ethical hacker.  
-Stick around if you’re into that kind of stuff!
+# ```Eustache Trying to Escape Matrix```
+
+### *W.3.L.C.0.M.3.*
+
+This blog is my personal journey into the digital systems that define our reality. We're diving deep into the binary shadows and cyber-secrets, focusing on:
+
+* `Finding the Exhaust Port (Web Security)`
+* `Defending the Wall (Network Security)`
+* `Crafting the Digital Brain (AI)`
+* `Deceiving the All-Seeing Eye (AI Security)`
+* `Forging Valyrian Steel (AppSec)`
+* `Hacking the Handheld Holoprojector (Mobile Sec)`
+* `Infiltrating the Death Star (Pentesting)`
+* `Seizing the Iron Throne (Active Directory)`
+* `Following the Digital Breadcrumbs (DFIR)`
+* `The 'One Ring' to Rule the Root (Exploits)`
+* `The Logic that Binds the Galaxy (Algorithms)`
+* `Mastering the Core Shell (OS & CS)`
+
+My goal is to explore, learn, and share the exploits. This is a place for the curious, the technical, and anyone else who suspects there's more to our reality than meets the eye.
+
+---
+
+> ### Welcome to the escape.
+>
+> *Let's find out how deep this rabbit hole goes.*
