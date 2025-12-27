@@ -28,10 +28,36 @@ const { avatarImage, githubCalendar } = Astro.props
       )
     }
     <div>
-      <div class:list={['m-4 max-w-full prose']}>
+      <div class:list={['m-4 max-w-full prose home-content']}>
         <slot />
       </div>
     </div>
   </div>
   {githubCalendar && <GitHubActivityCalendar username={githubCalendar} />}
 </div>
+
+<style>
+  .home-content {
+    @apply text-lg leading-relaxed;
+  }
+  
+  .home-content h1 {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+  
+  .home-content p {
+    @apply text-base md:text-lg mb-4;
+  }
+  
+  .home-content ul {
+    @apply space-y-2 my-4;
+  }
+  
+  .home-content li {
+    @apply text-base md:text-lg;
+  }
+  
+  .home-content blockquote {
+    @apply text-lg md:text-xl italic border-l-4 border-accent pl-4 my-6;
+  }
+</style>
