@@ -4,7 +4,7 @@ const config: SiteConfig = {
   // Absolute URL to the root of your published site, used for generating links and sitemaps.
   site: 'https://canoztas.github.io/',
   // The name of your site, used in the title and for SEO.
-  title: 'Eustache is trying to escape the matrix',
+  title: 'Eustache is trying to escape the Matrix',
   // The description of your site, used for SEO and RSS feed.
   description:
     'A cybersecurity blog covering vulnerability research, exploit development, penetration testing, reverse engineering, and defensive security strategies.',
