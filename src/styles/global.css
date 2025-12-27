@@ -135,6 +135,15 @@ body::after {
   }
 }
 
+@keyframes code-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* hide katex-html */
 .katex-html {
   @apply hidden;
@@ -230,15 +239,6 @@ article img {
       );
       opacity: 0.6;
       animation: code-scan 2s linear infinite;
-    }
-    
-    @keyframes code-scan {
-      0% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
     }
 
       &.has-title.is-terminal {
