@@ -1,6 +1,7 @@
 <>
-  <h1 class="text-accent text-[1.6rem] pb-2.5 pl-1 mt-6 md:mt-8 font-semibold">
+  <h1 class="text-accent text-[1.6rem] pb-2.5 pl-1 mt-6 md:mt-8 font-semibold relative">
     <slot />
+    <span class="absolute left-0 bottom-0 w-12 h-0.5 bg-accent rounded-full glow-accent"></span>
   </h1>
-  <div class="border-1 border-accent/30 rounded-xl h-1 w-full bg-gradient-to-r from-accent/50 to-transparent"></div>
+  <div class="border-1 border-accent/30 rounded-xl h-1 w-full bg-gradient-to-r from-accent/50 via-accent/30 to-transparent mt-1"></div>
 </>

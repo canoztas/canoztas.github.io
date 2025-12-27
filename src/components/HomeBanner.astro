@@ -10,24 +10,28 @@ interface Props {
 const { avatarImage, githubCalendar } = Astro.props
 ---
 
-<div class="my-8 md:mx-2">
+<div class="my-8 md:mx-2 relative">
   <div
-    class="flex flex-col sm:flex-row items-center justify-around sm:gap-6 max-w-full mb-8 p-4 rounded-xl bg-accent/5 border border-accent/10"
+    class="flex flex-col sm:flex-row items-center justify-around sm:gap-6 max-w-full mb-8 p-6 md:p-8 rounded-xl bg-accent/5 border border-accent/20 shadow-lg relative overflow-hidden"
   >
+    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/5 opacity-50"></div>
     {
       avatarImage && (
-        <Image
-          priority
-          src={avatarImage.src}
-          alt={avatarImage.alt}
-          class="rounded-full border-8 border-accent/20 size-36 aspect-square box-content shrink-0 shadow-lg hover:shadow-xl transition-shadow duration-300"
-          widths={[288]}
-          height={144}
-          width={144}
-        />
+        <div class="relative z-10">
+          <div class="absolute inset-0 rounded-full bg-accent/20 blur-xl animate-pulse"></div>
+          <Image
+            priority
+            src={avatarImage.src}
+            alt={avatarImage.alt}
+            class="relative rounded-full border-8 border-accent/30 size-36 aspect-square box-content shrink-0 shadow-xl hover:shadow-2xl hover:shadow-accent/30 transition-all duration-500 hover:scale-105"
+            widths={[288]}
+            height={144}
+            width={144}
+          />
+        </div>
       )
     }
-    <div class="flex-1">
+    <div class="flex-1 relative z-10">
       <div class:list={['m-4 max-w-full prose home-content']}>
         <slot />
       </div>

@@ -24,23 +24,26 @@ const samePage = Astro.url.pathname === `/posts/${post.id}`
 const articleLink = samePage ? `#${post.id}` : `/posts/${post.id}`
 ---
 
-<article class="w-full py-6 my-2 md:my-5 border-b border-accent/10 hover:border-accent/30 transition-all duration-300 hover:bg-accent/5 rounded-lg px-2 -mx-2">
-  <h1 class="mb-3 text-2xl text-heading1 font-semibold">
-    <a href={articleLink} class="hover:text-accent transition-colors duration-200"># {post.data.title}</a>
-  </h1>
-  <PostInfo post={post} class="mb-3 mt-4" />
-  {description && <p class="pl-0.5 my-4 text-base/7 text-foreground/90">{description}</p>}
-  {
-    tags && (
-      <div class="mb-6">
-        <Tags tags={tags} />
-      </div>
-    )
-  }
-  <div>
-    <a class="button flex items-center !pl-3.5 hover:bg-accent/20 hover:border-accent/50 transition-all duration-200" href={articleLink}>
-      {samePage ? 'Continue' : 'Read'}
-      <IconChevronsRight class="size-5 ml-2" />
-    </a>
+<article class="group w-full py-6 my-3 md:my-6 border border-accent/10 hover:border-accent/40 transition-all duration-500 hover:bg-accent/5 rounded-xl px-4 md:px-6 shadow-sm hover:shadow-lg hover:shadow-accent/10 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/0 group-hover:via-accent/5 group-hover:to-accent/0 transition-all duration-500 pointer-events-none"></div>
+  <div class="relative z-10">
+    <h1 class="mb-3 text-2xl md:text-3xl text-heading1 font-semibold">
+      <a href={articleLink} class="hover:text-accent transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"># {post.data.title}</a>
+    </h1>
+    <PostInfo post={post} class="mb-3 mt-4" />
+    {description && <p class="pl-0.5 my-4 text-base/7 text-foreground/90 leading-relaxed">{description}</p>}
+    {
+      tags && (
+        <div class="mb-6">
+          <Tags tags={tags} />
+        </div>
+      )
+    }
+    <div>
+      <a class="button flex items-center !pl-3.5 hover:bg-accent/20 hover:border-accent/50 transition-all duration-200 group-hover:shadow-md" href={articleLink}>
+        {samePage ? 'Continue' : 'Read'}
+        <IconChevronsRight class="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
+      </a>
+    </div>
   </div>
 </article>

@@ -41,6 +41,10 @@
   --default-font-family: var(--theme-font), monospace;
 }
 
+.glow-accent {
+  box-shadow: 0 0 8px color-mix(in srgb, var(--theme-accent) 60%, transparent);
+}
+
 header {
   view-transition-name: none;
 }
@@ -67,6 +71,39 @@ body {
   @apply transition-colors;
   font-display: block;
   font-size-adjust: ex-height 0.53;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(color-mix(in srgb, var(--theme-accent) 3%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--theme-accent) 3%, transparent) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: 0 0, 0 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body::before {
+    animation: grid-move 20s linear infinite;
+  }
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 50px 50px, 50px 50px;
+  }
 }
 
 /* hide katex-html */
@@ -116,7 +153,8 @@ article img {
   @apply text-base/7;
 
   code:not(.expressive-code code) {
-    @apply text-sm font-mono text-foreground/90 bg-foreground/5 px-2.5 py-1 rounded-lg whitespace-nowrap;
+    @apply text-sm font-mono text-foreground/90 bg-foreground/8 px-2.5 py-1 rounded-lg whitespace-nowrap border border-accent/20;
+    box-shadow: 0 0 8px color-mix(in srgb, var(--theme-accent) 10%, transparent);
   }
 
   & > *:not(div.expressive-code, img, figure, video, hr, blockquote, aside),
@@ -138,9 +176,9 @@ article img {
       --code-background: var(--theme-background);
     }
 
-    figure {
-      @apply border-2 border-foreground/8 !rounded-xl;
-      box-shadow: none !important;
+      figure {
+        @apply border-2 border-foreground/8 !rounded-xl;
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--theme-accent) 8%, transparent), 0 0 0 1px color-mix(in srgb, var(--theme-accent) 10%, transparent) !important;
 
       &.has-title.is-terminal {
         span.title {
@@ -219,9 +257,11 @@ article img {
 
   h1 {
     @apply text-[1.75rem] text-heading1 mt-8;
+    text-shadow: 0 0 10px color-mix(in srgb, var(--theme-accent) 20%, transparent);
 
     &::before {
-      @apply mr-2 content-['#'];
+      @apply mr-2 content-['#'] text-accent;
+      filter: drop-shadow(0 0 4px color-mix(in srgb, var(--theme-accent) 50%, transparent));
     }
 
     .heading-anchor svg {

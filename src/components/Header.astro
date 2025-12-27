@@ -11,13 +11,14 @@ const selectTheme =
 ---
 
 <header>
-  <div class="relative flex items-center justify-between bg-accent/10 rounded-xl border border-accent/20 shadow-sm">
+  <div class="relative flex items-center justify-between bg-accent/10 rounded-xl border border-accent/20 shadow-md backdrop-blur-sm">
     <a
       id="logo"
       href="/"
-      class="block px-4 py-1.5 max-w-full no-underline items-center bg-accent text-background font-bold rounded-xl transition-all duration-200 hover:bg-accent/90 hover:scale-105 hover:shadow-md"
+      class="block px-4 py-1.5 max-w-full no-underline items-center bg-accent text-background font-bold rounded-xl transition-all duration-300 hover:bg-accent/90 hover:scale-105 hover:shadow-lg hover:shadow-accent/30 relative overflow-hidden group"
     >
-      {siteConfig.title}
+      <span class="relative z-10">{siteConfig.title}</span>
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
     </a>
     <div class="flex items-center gap-3 sm:mr-3">
       <Search trailingSlashes={siteConfig.trailingSlashes} />
