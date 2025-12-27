@@ -218,28 +218,27 @@ article img {
       @apply border-2 border-foreground/8 !rounded-xl relative;
       box-shadow: 0 4px 20px color-mix(in srgb, var(--theme-accent) 12%, transparent), 0 0 0 1px color-mix(in srgb, var(--theme-accent) 15%, transparent), inset 0 0 20px color-mix(in srgb, var(--theme-accent) 5%, transparent) !important;
       transition: all 0.3s ease;
-    }
-    
-    figure:hover {
-      box-shadow: 0 8px 30px color-mix(in srgb, var(--theme-accent) 20%, transparent), 0 0 0 2px color-mix(in srgb, var(--theme-accent) 30%, transparent), inset 0 0 30px color-mix(in srgb, var(--theme-accent) 8%, transparent) !important;
-      transform: translateY(-2px);
-    }
-    
-    figure::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, 
-        transparent,
-        color-mix(in srgb, var(--theme-accent) 50%, transparent),
-        transparent
-      );
-      opacity: 0.6;
-      animation: code-scan 2s linear infinite;
-    }
+      
+      &:hover {
+        box-shadow: 0 8px 30px color-mix(in srgb, var(--theme-accent) 20%, transparent), 0 0 0 2px color-mix(in srgb, var(--theme-accent) 30%, transparent), inset 0 0 30px color-mix(in srgb, var(--theme-accent) 8%, transparent) !important;
+        transform: translateY(-2px);
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, 
+          transparent,
+          color-mix(in srgb, var(--theme-accent) 50%, transparent),
+          transparent
+        );
+        opacity: 0.6;
+        animation: code-scan 2s linear infinite;
+      }
 
       &.has-title.is-terminal {
         span.title {
