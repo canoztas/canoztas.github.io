@@ -13,7 +13,7 @@ Welcome to my digital lair. I created this blog to document my journey through t
 $ whoami
 ```
 
-My name is Alp. I'm an undergraduate Computer Science student with an insatiable curiosity for breaking things—and more importantly, understanding how to fix them.
+My name is Can. I'm an undergraduate Computer Science student with an insatiable curiosity for breaking things—and more importantly, understanding how to fix them.
 
 ## The Mission
 

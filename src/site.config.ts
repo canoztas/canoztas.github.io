@@ -9,7 +9,7 @@ const config: SiteConfig = {
   description:
     'A cybersecurity blog covering vulnerability research, exploit development, penetration testing, reverse engineering, and defensive security strategies.',
   // The author of the site, used in the footer, SEO, and RSS feed.
-  author: 'Alp',
+  author: 'Can',
   // Keywords for SEO, used in the meta tags.
   tags: ['cybersecurity', 'ctf', 'cyber research', 'blue team', 'red team', 'purple team'],
   // Path to the image used for generating social media previews.
