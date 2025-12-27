@@ -1,0 +1,457 @@
+=== Page 1 ===
+IoT Security: An Offensive Case Study
+Refik Can OZTAS1[n23131610]
+1 Hacettepe University, Beytepe, Ankara, Turkey
+IoT devices are starting to be used more day by day. Although these
+devices are very useful even with their limited resources, their security is a
+great attack vector. This paper covers and investigates several attacks on
+real-life created IoT networks via hardwares to conduct those attacks.
+Also, as the created network topology, future work directions are also
+included in this paper.
+Keywords: IoT Security, Wireless Security, ZigBee Security, Wi-Fi Security.
+1
+Introduction
+The need to secure the Internet of Things (IoT) is more important than ever
+as the globe grows more interconnected due to the vast network of smart gadgets. IoT
+technologies are expanding quickly, which presents a number of opportunities but also
+raises a serious concern: these linked ecosystems are vulnerable to malevolent threats.
+This case study explores the obstacles, tactics, and innovations in protecting the
+confidentiality and integrity of connected devices, delving into the dynamic field of
+IoT security.
+In the age of digital transformation, where IoT interlaces homes, industries,
+healthcare, and transportation seamlessly, the imperative for steadfast security
+measures cannot be overstated. My research seeks to untangle the intricacies of IoT
+security, confronting the distinctive challenges stemming from the diversity of
+devices, protocols, and communication channels inherent in the IoT terrain.
+Notable cases, such as the Mirai botnet attack and the Dyn DDoS attack in
+2016, demonstrated the potential havoc that can be wreaked when insecure IoT
+devices are exploited to orchestrate large-scale disruptions. These incidents exposed
+critical security flaws in widely used IoT devices, illustrating the urgent need for
+robust cybersecurity measures.
+Although IoT security covers many security areas like Network Security,
+Hardware Security and many more, and there are other case studies that cover [15]
+every area, this case study mostly focuses on the Wireless Security and Network
+Security side of IoT devices.
+
+
+=== Page 2 ===
+2
+Refik Can OZTAS
+In order to investigate, research and recreate attack scenarios, firstly, a
+literature review was conducted. Then, a real basic IoT network was created. After
+this topology was created, real IoT devices for packet manipulating, sniffing and
+replaying were set up. Then, various attacks were implemented.
+2
+Methodology
+2.1 Security of IoT devices
+A physical object or device that has sensors, software, and connection built
+in to enable it to communicate and share data with other devices and systems via the
+internet is referred to as an Internet of Things (IoT) device. These gadgets are a
+component of a larger ecosystem called the Internet of Things, in which devices may
+gather, send, and receive data for a variety of uses thanks to their connections and
+interactions with one another.
+IoT devices contain various components. For an attacker, every component
+of this device can be an attack surface. Basic logical and physical components of an
+IoT device are:
+●
+Network
+Since the devices are connected with each other and gateways/routers. Their
+network connection is a security concern.
+●
+Web (Front & Backend and Web services)
+Most end-user type IoT devices have web panels in local network and cloud
+networks for usability. These panels can be important attack vectors.
+●
+Mobile App (Android & iOS applications)
+Most end-user type IoT devices have mobile applications for usability. These
+applications can be important attack vectors.
+●
+Wireless Connectivity (Zigbee, WiFi, Bluetooth, etc)
+The emergence of wireless networking technologies, including WiFi,
+Bluetooth, Zigbee, and others, has greatly expanded the potential of Internet of Things
+
+
+=== Page 3 ===
+IoT Security: An Offensive Case Study
+3
+devices. But increased connectivity also creates a surface for possible attacks that bad
+actors could take advantage of. It is essential to comprehend and resolve the
+vulnerabilities linked to these wireless protocols in order to guarantee the security of
+IoT ecosystems.
+●
+Firmware Security (OS of IoT Devices)
+As the devices have firmware that runs their specialized hardware, this
+firmwares confidentiality and security is an asset.
+●
+Hardware Hacking & Fault Injections & SCA Attacks
+Some hard-coded information such as master-keys is implemented on
+hardware level in some cases. This type of information is a target for attackers.
+●
+Storage Medium
+File system, flash memory and storage medium’s security is a concern
+because they may contain sensitive information.
+●
+I/O Ports
+Since IoT devices are relatively-old hardwares, they can be vulnerable for
+binary-exploitation attacks.
+This paper focuses on the wireless security of devices.
+2.2 IoT network architecture
+In order to generate a case study, an IoT network with IoT devices was built.
+As seen in Figure 1, in wireless communication, IoT devices communicate with
+ZigBee Gateway via ZigBee protocol. ZigBee Gateway connects to Router via Wi-Fi
+in order to communicate with Mobile Application and Internet. ZigBee Gateway and
+IoT devices are relatively-manageable from mobile applications. Mobile application
+creates a traffic with-in ZigBee gateway in order to receive and send information to
+IoT endpoints. Although most traffic comes to ZigBee Gateway from Mobile
+application through Server/Internet, some of the traffic with-in mobile application and
+
+
+=== Page 4 ===
+4
+Refik Can OZTAS
+ZigBee gateway are local, therefore, in order to use some of the features, mobile
+application and ZigBee Gateway must be on the same network.
+Fig 1: IoT Network Topology
+
+
+=== Page 5 ===
+IoT Security: An Offensive Case Study
+5
+2.2 IoT devices
+I selected Imou ZigBee Gateway as Gateway, ZTM1 temperature sensor and
+Zp1 motion detector as proof-of-concept IoT endpoint devices.
+Fig 2: from left to right - Temperature sensor, ZigBee gateway, Motion sensor
+
+
+=== Page 6 ===
+6
+Refik Can OZTAS
+2.3 Hardwares For Attacks
+In order to generate attacks to wireless networks, additional hardware is
+required. There is specialized hardware to generate these attacks, or SDR can be used.
+Although using SDR or different hardware may be debatable based on various
+metrics, such as performance, implementation difference [1] and some attacks may
+not be producible on SDR or hardware depending on the attack, I mostly used
+CC2531 USB-Dongle to produce attacks. Texas Instruments designed the CC2531, a
+popular wireless system-on-chip (SoC). It is commonly utilized in the development of
+Zigbee-based applications. Since it is a system-on-chip it requires firmware in order
+to perform attacks. Details about uploading firmware to the chip are on the appendix.
+Fig 3: from left to right - RTL-SDR, CC2531 USB-Dongle
+
+
+=== Page 7 ===
+IoT Security: An Offensive Case Study
+7
+3
+Implementation
+3.1 ZigBee Channel Fuzzing/Scanning
+ZigBee uses 2.4GHz channels. Based on the RFC, it starts from 2405MHz
+(0x0B channel) to 2480MHz (0x1A channel). Although packets can be sent via
+different channels with-in the same network, most cases use one frequency channel.
+Listening every channel with time-slots, called Channel Fuzzing/Scanning, is a
+reconnaissance step of ZigBee attacks.
+I listened to all channels with 1-second time slots. In my case channel 0x0E,
+2420MHz was used by ZigBee gateway and sensors.
+Fig 4: ZigBee Channel Scanning via Ubiqua Protocol Analyzer
+
+
+=== Page 8 ===
+8
+Refik Can OZTAS
+3.2 Network Sniffing
+ZigBee protocol sends packets encrypted, however, this encryption can be
+decrypted easily. [11]. When hardware sets properly, it can act as sender and receiver
+in ZigBee protocol. [Appendix A]. When traffic is captured, I see encrypted traffic.
+ZigBee uses two keys because of its protocol. Trust Center Link Key and Network
+Key. Trust Center key is a generic key in ZigBee protocol. Although some specific
+vendors like Hue [12], use different trust center keys, it was generic in my case.
+Detailed instructions are shown in Appendix B [Appendix B].
+Network is a secret component, however when a new device is joined to the
+network, the ZigBee Gateway must send this key to the device in order to
+communicate. As an attacker, I can sniff this key.
+When a device wants to join the network, it sends a broadcast request. When
+gateway captures these requests, it responds with Permit Join Request, which includes
+a network key. With the capture key, the attacker can read frames.
+Fig 5: Secret key of the case study in Wireshark
+.
+
+
+=== Page 9 ===
+IoT Security: An Offensive Case Study
+9
+Fig 6: Frame of packets
+
+
+=== Page 10 ===
+10
+Refik Can OZTAS
+Fig 7: Encrypted packets and frame of packets in Ubique Packet Analyzer
+3.2 Packet Injection/Manipulation
+Since a packet can be unencrypted and readable, it can be manipulated also.
+For instance, in our network, sensors send temperature data to ZigBee Gateway.
+Although jamming a specific packet and forging a manipulated one is not
+easily-implementable, sending newly crafted packets can manipulate Gateway,
+ultimately the whole architecture. For instance, if there is a rule that enables a
+cooling-system in a specific temperature, it can be easily triggered.
+
+
+=== Page 11 ===
+IoT Security: An Offensive Case Study
+11
+Fig 8: Example ZigBee Packet from Sensor to Gateway
+3.4 Wi-Fi Protocol of ZigBee Gateway
+WiFi deauthentication (deauth) attack is a type of cyber attack that targets
+wireless networks. The goal of this attack is to disconnect devices from a WiFi
+network by sending deauthentication frames to the targeted devices. These frames
+essentially tell the devices that they are no longer authenticated to the network,
+forcing them to disconnect and prompting them to reauthenticate.
+
+
+=== Page 12 ===
+12
+Refik Can OZTAS
+Our GateWay uses Wi-Fi to communicate with the internet, and it uses a
+2.4Ghz channel. Therefore, when we disconnect the 2.4Ghz channel, our GateWay
+will not be able to communicate with the internet.
+This attack causes Denial of Service with connection to the cloud. Our alarm
+rings since they are connected to the gateway via ZigBee, however, we can not get
+alarm
+notification
+from
+mobile
+applications
+since
+the
+IoT networks cloud
+communication was lost.
+Detailed steps can be found on Appendix C [Appendix C]
+3.5 Other Component Findings
+Other findings are listed in Appendix D [Appendix D].
+4
+Related Works
+In general, wireless attacks may be classified into three basic section:
+Packet sniffing
+Packet injection
+Packet manipulation
+Sniffing
+can
+be
+considered passive reconnaissance in the offensive-security
+methodology. Only confidentiality of the data is an attack surface. An attacker can
+sniff packets without generating any logs.
+Injection and manipulation can be considered more complex attacks. It aims at
+Confidentiality, Integrity and Availability of data.
+Although not every ZigBee attack is directly related to ZigBee protocol, it can be
+caused by another layer protocols, based on the paper by M. Gupta, S. Singh [3],
+general ZigBee Weaknesses and Suggestions [2], Routing Layer Intrusions [4],
+ZigBee Vulnerabilities [5] , Zigbee Topology [6] , Zigbee Concepts [7], General
+Overview [8], Key Management [9], Zigbee and IEEE 802.15.4 [10], Zigbee Attack
+Classification [3], are the mostly studied areas in the domain of ZigBee.
+
+
+=== Page 13 ===
+IoT Security: An Offensive Case Study
+13
+5
+Future Work Direction
+My case study required comparison and merging of various attacks on the
+Wireless Security side of IoT devices. Based on this general study, future direction on
+this research might be:
+●
+Since there is a PoC network and architecture for ZigBee, a dataset can be
+created from real ZigBee traffic.
+●
+Based on this traffic, implemented attacks can be generated in the traffic.
+And, study for solving anomaly detection problems, classification of attack
+problems can be conducted via Machine Learning / Artificial Intelligence /
+Neural Network based approaches.
+●
+Although this paper covers mostly wireless attacks of IoT devices, other
+security components might be studied as a case study.
+●
+Based on the traffic, IPS/IDS systems can be formed.
+●
+With a proper IDS/IPS system, if hardware of devices is also studied, there
+can be Endpoint Based Security Solutions for such systems.
+●
+In addition, as a deep-dive security approach, vulnerabilities on ZigBee
+protocol, or physically attack vectors (such as jamming with SDR) could be
+studied and analyzed.
+6
+Conclusion
+My research is a basic security case study on IoT devices. This research
+starts with definitions and IoT devices security of components. Although this paper
+mostly covers the wireless security of IoT devices, other components security is also
+mentioned. In order to conduct a case study, I created an IoT network with various
+devices, made the configuration and set-up the hardware devices in order to conduct
+ZigBee attacks.
+As mentioned in future directions, this case study may be extended to
+generate dataset, characterize dataset and furthermore. My generated ZigBee data (not
+all) is referenced in Appendix E [Appendix E].
+Although ZigBee is a cheap technology for low-resource devices, its security
+in IoT seems problematic. Hong Kong CERT team published a security guideline [13]
+to prevent attacks just like in this case study, however, since the area like IoT is very
+vendor dependent, forming and conducting security principles may not be possible in
+near future.
+
+
+=== Page 14 ===
+14
+Refik Can OZTAS
+References
+1. Dalrymple, Scott D., "Comparison of ZigBee Replay Attacks Using a Universal Software
+Radio
+Peripheral
+and
+USB
+Radio"
+(2014).
+Theses
+and
+Dissertations.
+595.
+https://scholar.afit.edu/etd/595
+2. Alireza Zohourian, Sajjad Dadkhah, Euclides Carlos Pinto Neto, Hassan Mahdikhani,
+Priscilla Kyei Danso, Heather Molyneaux, Ali A. Ghorbani, IoT Zigbee device security: A
+comprehensive review, Internet of Things, Volume 22,2023,100791, ISSN 2542-6605,
+https://doi.org/10.1016/j.iot.2023.100791.(https://www.sciencedirect.com/science/article/pi
+i/S2542660523001142)
+3.
+M. Gupta, S. Singh, A survey on the zigbee protocol, it’s security in internet of things (iot)
+and comparison of zigbee with bluetooth and wi-fi, in: Applications of Artificial
+Intelligence in Engineering, Springer, 2021, pp. 473–482.
+4. N. Sidhu, M. Sachdeva, A comprehensive study of routing layer intrusions in zigbee based
+wireless sensor networks, Int. J. Adv. Sci. Technol. 29 (3) (2020) 514–524.
+5.
+S. Khanji, F. Iqbal, P. Hung, ZigBee security vulnerabilities: Exploration and evaluating,
+in: 2019 10th International Conference on Information and Communication Systems,
+ICICS, IEEE, 2019, pp. 52–57.
+6.
+T. Kumar, P. Mane, ZigBee topology: A survey, in: 2016 International Conference on
+Control, Instrumentation, Communication and Computational Technologies, ICCICCT,
+IEEE, 2016, pp. 164–166.
+7. J.M. Varghese, K. Nibi, V.T. Varghese, S. Rao, A survey of the state of the art in ZigBee,
+Int. J. Cybern. Inf. 4 (2) (2015) 145–155.
+8. O.G. Aju, A survey of zigbee wireless sensor network technology: Topology, applications
+and challenges, Int. J. Comput. Appl. 130 (9) (2015) 47–55.
+9. Z.A. Davani, A.A. Manaf, A survey on key management of ZigBee network, in:
+Proceedings of the International Conference on E-Technologies and Business on the Web
+(EBW’2013), Bangkok, Thailand, Citeseer, 2013, pp. 7–9.
+10. P. Baronti, P. Pillai, V.W. Chook, S. Chessa, A. Gotta, Y.F. Hu, Wireless sensor networks:
+A survey on the state of the art and the 802.15. 4 and ZigBee standards, Comput.
+Commun. 30 (7) (2007) 1655–1695.
+11. Xueqi Fan, Fransisca Susan, William Long, Shangyan Li, Security Analysis of Zigbee,
+MIT
+12. https://peeveeone.com/2016/11/breakout-breakthrough/
+13. https://www.hkcert.org/f/guideline/264461/3a1c8eed-012c-4b59-9d9e-971001d66c77-DL
+FE-14602.pdf
+https://www.hkcert.org/security-guideline/implementing-iot-security-best-practice
+14.
+15. Philipp Morgner, Stephan Mattejat, Zinaida Benenson, All Your Bulbs Are Belong to Us:
+Investigating
+the
+Current
+State
+of
+Security
+in
+Connected
+Lighting
+Systems,
+arXiv:1608.03732v2 [cs.CR] 21 Jun 2017
+16. Lennart Jansen, Assessing smart home security: a Zigbee case study, University of Twente,
+https://essay.utwente.nl/89274/1/89274_Jansen_MA_EEMCS.pdf
+
+
+=== Page 15 ===
+IoT Security: An Offensive Case Study
+15
+APPENDIX A
+Hardware Setup
+I used a CC2531 USB Dongle in order to capture and send packets. Although
+its hardware is specialized for ZigBee, in order to work with real-life cases it needs
+firmware. Firmwares of CC2531 is directly related to which packet capture
+technology you are using. Therefore, in the research process, I tried various packet
+capture softwares and firmwares.
+In order to install firmware, CC Debugger by Texas Instruments are required.
+In addition, debugger has 10 pins and the CC2531 has 8, therefore a transformer cable
+is also required.
+After that, with Texas Instruments software, firmware can be uploaded to
+SoC, and related packet sniffers can be used.
+In this paper, if Ubiqua protocol analyzer is used in the attack, CC2531 uses
+ubqia-sn_v0.9.0.hex firmware. If wireshark is used, it uses zboss_sniffer.hex
+firmware.
+Fig A.1: Firmware Flash Programmer Software by Texas Instruments
+
+
+=== Page 16 ===
+16
+Refik Can OZTAS
+Fig A.2: Firmware list I used in this case by various vendors
+
+
+=== Page 17 ===
+IoT Security: An Offensive Case Study
+17
+APPENDIX B
+Packet Sniffing Setup
+Although they are very-similar, I used three packet sniffer softwares in this
+study. Texas Instruments SmartRF packet sniffer, which I do not think works stable,
+Wireshark and Ubiqua protocol analyzer. Ubiqua protocol analyzer is an enterprise
+solution which I used in trial mode, is very user-friendly. On the other hand wireshark
+is the most common packet-inspection tool for not just IoT networks, for IT and OT
+networks too.
+Fig B.1: Encrypted packets on SmartRF packet sniffer
+Fig B.2: Packets in Wireshark
+
+
+=== Page 18 ===
+18
+Refik Can OZTAS
+Fig B.3: Network key configuration in Ubiqua Protocol Analyzer
+
+
+=== Page 19 ===
+IoT Security: An Offensive Case Study
+19
+APPENDIX C
+Fig C.1: Finding MAC address of the GateWay
+Fig C.2: Performing DeAuth Attack
+
+
+=== Page 20 ===
+20
+Refik Can OZTAS
+Fig C.3: Gateway turns into red color because of Wi-Fi connection is lost
+Fig C.4: Mobile Application (Cloud) loses connection because of DeAuth attack
+
+
+=== Page 21 ===
+IoT Security: An Offensive Case Study
+21
+APPENDIX D
+Gathering Information via Man-in-the-Middle:
+I poisoned the arp-table in the network in order to see the traffic between Gateway,
+Router(internet) and mobile application.
+Therefore, I discovered the cloud IP of the main server:
+Fig D.1: Wireshark output of L4 traffic of network
+Fig D.2: IPInfo of cloud server
+
+
+=== Page 22 ===
+22
+Refik Can OZTAS
+Network port scan:
+I conducted a full port scan for the ZigBee gateway, I discovered that port 7050 is
+open in the device.
+Fig D.3: nmap output of ZigBee Gateway
+
+
+=== Page 23 ===
+IoT Security: An Offensive Case Study
+23
+APPENDIX E
+https://canoztas.github.io/zigbeedata1.pcapng
+https://canoztas.github.io/zigbeedata2.cubx
+https://canoztas.github.io/zigbeedata3.psd
+
