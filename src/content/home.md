@@ -10,6 +10,4 @@ This blog is my personal journey into the digital systems that define our realit
 
 ---
 
-Welcome to the force.
-
 > *Let's find out how deep this rabbit hole goes.*
