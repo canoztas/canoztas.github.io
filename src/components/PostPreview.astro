@@ -24,11 +24,22 @@ const samePage = Astro.url.pathname === `/posts/${post.id}`
 const articleLink = samePage ? `#${post.id}` : `/posts/${post.id}`
 ---
 
-<article class="group w-full py-6 my-3 md:my-6 border border-accent/10 hover:border-accent/40 transition-all duration-500 hover:bg-accent/5 rounded-xl px-4 md:px-6 shadow-sm hover:shadow-lg hover:shadow-accent/10 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/0 group-hover:via-accent/5 group-hover:to-accent/0 transition-all duration-500 pointer-events-none"></div>
+<article class="group w-full py-6 my-3 md:my-6 border-2 border-accent/10 hover:border-accent/50 transition-all duration-500 hover:bg-accent/5 rounded-xl px-4 md:px-6 shadow-sm hover:shadow-2xl hover:shadow-accent/20 relative overflow-hidden terminal-card">
+  <!-- Terminal corner decorations -->
+  <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  
+  <!-- Animated gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/0 group-hover:via-accent/8 group-hover:to-accent/0 transition-all duration-700 pointer-events-none"></div>
+  
+  <!-- Glitch effect overlay -->
+  <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none glitch-overlay"></div>
+  
   <div class="relative z-10">
     <h1 class="mb-3 text-2xl md:text-3xl text-heading1 font-semibold">
-      <a href={articleLink} class="hover:text-accent transition-colors duration-200 inline-block hover:translate-x-1 transition-transform"># {post.data.title}</a>
+      <a href={articleLink} class="hover:text-accent transition-all duration-300 inline-block hover:translate-x-2 hover:drop-shadow-[0_0_8px_color-mix(in_srgb,var(--theme-accent)_60%,transparent)] glitch-text"># {post.data.title}</a>
     </h1>
     <PostInfo post={post} class="mb-3 mt-4" />
     {description && <p class="pl-0.5 my-4 text-base/7 text-foreground/90 leading-relaxed">{description}</p>}
@@ -40,10 +51,114 @@ const articleLink = samePage ? `#${post.id}` : `/posts/${post.id}`
       )
     }
     <div>
-      <a class="button flex items-center !pl-3.5 hover:bg-accent/20 hover:border-accent/50 transition-all duration-200 group-hover:shadow-md" href={articleLink}>
+      <a class="button flex items-center !pl-3.5 hover:bg-accent/20 hover:border-accent/60 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-accent/30 hover:scale-105 terminal-button" href={articleLink}>
         {samePage ? 'Continue' : 'Read'}
-        <IconChevronsRight class="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
+        <IconChevronsRight class="size-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
       </a>
     </div>
   </div>
 </article>
+
+<style>
+  .terminal-card {
+    position: relative;
+  }
+  
+  .terminal-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, color-mix(in srgb, var(--theme-accent) 20%, transparent), transparent);
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+  }
+  
+  .terminal-card:hover::before {
+    opacity: 1;
+    animation: border-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes border-glow {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .glitch-overlay {
+    background: 
+      linear-gradient(90deg, transparent 98%, color-mix(in srgb, var(--theme-accent) 30%, transparent) 100%),
+      linear-gradient(0deg, transparent 98%, color-mix(in srgb, var(--theme-accent) 30%, transparent) 100%);
+    background-size: 3px 3px;
+    animation: glitch-scan 0.1s linear infinite;
+  }
+  
+  @keyframes glitch-scan {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-1px, 1px);
+    }
+    40% {
+      transform: translate(-1px, -1px);
+    }
+    60% {
+      transform: translate(1px, 1px);
+    }
+    80% {
+      transform: translate(1px, -1px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  .glitch-text:hover {
+    animation: glitch-text 0.3s infinite;
+  }
+  
+  @keyframes glitch-text {
+    0%, 100% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-1px, 1px);
+    }
+    40% {
+      transform: translate(-1px, -1px);
+    }
+    60% {
+      transform: translate(1px, 1px);
+    }
+    80% {
+      transform: translate(1px, -1px);
+    }
+  }
+  
+  .terminal-button {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .terminal-button::after {
+    content: '>';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  
+  .terminal-button:hover::after {
+    left: 8px;
+    opacity: 1;
+    color: var(--theme-accent);
+  }
+</style>

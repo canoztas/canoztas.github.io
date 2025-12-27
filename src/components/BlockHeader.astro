@@ -1,7 +1,44 @@
 <>
-  <h1 class="text-accent text-[1.6rem] pb-2.5 pl-1 mt-6 md:mt-8 font-semibold relative">
+  <h1 class="text-accent text-[1.6rem] pb-2.5 pl-1 mt-6 md:mt-8 font-semibold relative section-header">
+    <span class="absolute left-0 top-0 bottom-0 w-1 bg-accent/50 rounded-full animate-pulse"></span>
     <slot />
-    <span class="absolute left-0 bottom-0 w-12 h-0.5 bg-accent rounded-full glow-accent"></span>
+    <span class="absolute left-0 bottom-0 w-16 h-0.5 bg-accent rounded-full glow-accent animate-expand"></span>
   </h1>
-  <div class="border-1 border-accent/30 rounded-xl h-1 w-full bg-gradient-to-r from-accent/50 via-accent/30 to-transparent mt-1"></div>
+  <div class="border-1 border-accent/30 rounded-xl h-1 w-full bg-gradient-to-r from-accent/60 via-accent/40 to-transparent mt-1 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-accent/60 to-transparent animate-shimmer"></div>
+  </div>
 </>
+
+<style>
+  .section-header {
+    text-shadow: 0 0 15px color-mix(in srgb, var(--theme-accent) 30%, transparent);
+  }
+  
+  @keyframes expand {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+    100% {
+      width: 4rem;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .animate-expand {
+    animation: expand 0.6s ease-out;
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+</style>

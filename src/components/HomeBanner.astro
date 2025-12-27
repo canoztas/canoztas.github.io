@@ -12,18 +12,30 @@ const { avatarImage, githubCalendar } = Astro.props
 
 <div class="my-8 md:mx-2 relative">
   <div
-    class="flex flex-col sm:flex-row items-center justify-around sm:gap-6 max-w-full mb-8 p-6 md:p-8 rounded-xl bg-accent/5 border border-accent/20 shadow-lg relative overflow-hidden"
+    class="flex flex-col sm:flex-row items-center justify-around sm:gap-6 max-w-full mb-8 p-6 md:p-8 rounded-xl bg-accent/5 border-2 border-accent/20 shadow-2xl relative overflow-hidden terminal-banner"
   >
-    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/5 opacity-50"></div>
+    <!-- Animated corner brackets -->
+    <div class="absolute top-2 left-2 text-accent/40 font-mono text-xl opacity-50">[</div>
+    <div class="absolute top-2 right-2 text-accent/40 font-mono text-xl opacity-50">]</div>
+    <div class="absolute bottom-2 left-2 text-accent/40 font-mono text-xl opacity-50">[</div>
+    <div class="absolute bottom-2 right-2 text-accent/40 font-mono text-xl opacity-50">]</div>
+    
+    <!-- Animated gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/10 opacity-60 animate-gradient"></div>
+    
+    <!-- Scanline effect -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent h-full animate-scan opacity-50"></div>
+    
     {
       avatarImage && (
-        <div class="relative z-10">
-          <div class="absolute inset-0 rounded-full bg-accent/20 blur-xl animate-pulse"></div>
+        <div class="relative z-10 avatar-container">
+          <div class="absolute inset-0 rounded-full bg-accent/30 blur-2xl animate-pulse-slow"></div>
+          <div class="absolute inset-0 rounded-full border-4 border-accent/40 animate-spin-slow" style="animation-duration: 20s;"></div>
           <Image
             priority
             src={avatarImage.src}
             alt={avatarImage.alt}
-            class="relative rounded-full border-8 border-accent/30 size-36 aspect-square box-content shrink-0 shadow-xl hover:shadow-2xl hover:shadow-accent/30 transition-all duration-500 hover:scale-105"
+            class="relative rounded-full border-8 border-accent/40 size-36 aspect-square box-content shrink-0 shadow-2xl hover:shadow-[0_0_40px_color-mix(in_srgb,var(--theme-accent)_50%,transparent)] transition-all duration-500 hover:scale-110"
             widths={[288]}
             height={144}
             width={144}
@@ -39,6 +51,70 @@ const { avatarImage, githubCalendar } = Astro.props
   </div>
   {githubCalendar && <GitHubActivityCalendar username={githubCalendar} />}
 </div>
+
+<style>
+  .terminal-banner {
+    position: relative;
+  }
+  
+  @keyframes animate-gradient {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  @keyframes animate-scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .avatar-container {
+    filter: drop-shadow(0 0 20px color-mix(in srgb, var(--theme-accent) 40%, transparent));
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  
+  .animate-gradient {
+    animation: animate-gradient 4s ease-in-out infinite;
+  }
+  
+  .animate-scan {
+    animation: animate-scan 3s linear infinite;
+  }
+</style>
 
 <style>
   .home-content {

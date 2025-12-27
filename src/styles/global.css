@@ -91,6 +91,26 @@ body::before {
   opacity: 0.3;
 }
 
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    color-mix(in srgb, var(--theme-accent) 2%, transparent) 2px,
+    color-mix(in srgb, var(--theme-accent) 2%, transparent) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.15;
+  animation: scanline 8s linear infinite;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   body::before {
     animation: grid-move 20s linear infinite;
@@ -103,6 +123,15 @@ body::before {
   }
   100% {
     background-position: 50px 50px, 50px 50px;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
   }
 }
 
@@ -176,9 +205,41 @@ article img {
       --code-background: var(--theme-background);
     }
 
-      figure {
-        @apply border-2 border-foreground/8 !rounded-xl;
-        box-shadow: 0 4px 12px color-mix(in srgb, var(--theme-accent) 8%, transparent), 0 0 0 1px color-mix(in srgb, var(--theme-accent) 10%, transparent) !important;
+    figure {
+      @apply border-2 border-foreground/8 !rounded-xl relative;
+      box-shadow: 0 4px 20px color-mix(in srgb, var(--theme-accent) 12%, transparent), 0 0 0 1px color-mix(in srgb, var(--theme-accent) 15%, transparent), inset 0 0 20px color-mix(in srgb, var(--theme-accent) 5%, transparent) !important;
+      transition: all 0.3s ease;
+    }
+    
+    figure:hover {
+      box-shadow: 0 8px 30px color-mix(in srgb, var(--theme-accent) 20%, transparent), 0 0 0 2px color-mix(in srgb, var(--theme-accent) 30%, transparent), inset 0 0 30px color-mix(in srgb, var(--theme-accent) 8%, transparent) !important;
+      transform: translateY(-2px);
+    }
+    
+    figure::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, 
+        transparent,
+        color-mix(in srgb, var(--theme-accent) 50%, transparent),
+        transparent
+      );
+      opacity: 0.6;
+      animation: code-scan 2s linear infinite;
+    }
+    
+    @keyframes code-scan {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
 
       &.has-title.is-terminal {
         span.title {

@@ -11,14 +11,15 @@ const selectTheme =
 ---
 
 <header>
-  <div class="relative flex items-center justify-between bg-accent/10 rounded-xl border border-accent/20 shadow-md backdrop-blur-sm">
+  <div class="relative flex items-center justify-between bg-accent/10 rounded-xl border-2 border-accent/20 shadow-lg backdrop-blur-sm terminal-header">
     <a
       id="logo"
       href="/"
-      class="block px-4 py-1.5 max-w-full no-underline items-center bg-accent text-background font-bold rounded-xl transition-all duration-300 hover:bg-accent/90 hover:scale-105 hover:shadow-lg hover:shadow-accent/30 relative overflow-hidden group"
+      class="block px-4 py-1.5 max-w-full no-underline items-center bg-accent text-background font-bold rounded-xl transition-all duration-300 hover:bg-accent/90 hover:scale-105 hover:shadow-xl hover:shadow-accent/40 relative overflow-hidden group logo-terminal"
     >
       <span class="relative z-10">{siteConfig.title}</span>
-      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/0 via-accent/20 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
     </a>
     <div class="flex items-center gap-3 sm:mr-3">
       <Search trailingSlashes={siteConfig.trailingSlashes} />
@@ -61,6 +62,57 @@ const selectTheme =
     </ul>
   </nav>
 </header>
+
+<style>
+  .terminal-header {
+    position: relative;
+  }
+  
+  .terminal-header::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+      color-mix(in srgb, var(--theme-accent) 30%, transparent),
+      transparent,
+      color-mix(in srgb, var(--theme-accent) 30%, transparent)
+    );
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    animation: header-pulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes header-pulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  
+  .logo-terminal {
+    text-shadow: 0 0 10px color-mix(in srgb, var(--theme-background) 50%, transparent);
+  }
+  
+  .logo-terminal:hover {
+    animation: logo-glow 1s ease-in-out infinite;
+  }
+  
+  @keyframes logo-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px color-mix(in srgb, var(--theme-accent) 40%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 20px color-mix(in srgb, var(--theme-accent) 60%, transparent), 0 0 30px color-mix(in srgb, var(--theme-accent) 40%, transparent);
+    }
+  }
+</style>
 
 <script>
   const navMobileButton = document.getElementById('nav-mobile-button')

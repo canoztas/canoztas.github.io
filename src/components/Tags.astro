@@ -13,9 +13,10 @@ const { tags } = Astro.props
     tags.map((tag) => (
       <a
         href={tag.url}
-        class="py-1.5 px-4 bg-accent/5 hover:bg-accent/15 border border-accent/30 hover:border-accent/60 text-accent/90 rounded-full transition-all duration-200 hover:scale-105 hover:shadow-sm hover:shadow-accent/20 font-medium"
+        class="py-1.5 px-4 bg-accent/5 hover:bg-accent/20 border border-accent/30 hover:border-accent/70 text-accent/90 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md hover:shadow-accent/30 font-medium relative overflow-hidden tag-pill"
       >
-        {tag.title}
+        <span class="relative z-10">{tag.title}</span>
+        <span class="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 translate-x-[-100%] hover:translate-x-[100%] transition-transform duration-500"></span>
       </a>
     ))
   }
