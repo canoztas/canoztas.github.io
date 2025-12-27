@@ -38,26 +38,66 @@ const { avatarImage, githubCalendar } = Astro.props
 
 <style>
   .home-content {
-    @apply text-lg leading-relaxed;
+    font-size: 1.125rem;
+    line-height: 1.75;
   }
   
   .home-content h1 {
-    @apply text-3xl md:text-4xl font-bold mb-4;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .home-content h1 {
+      font-size: 2.25rem;
+    }
   }
   
   .home-content p {
-    @apply text-base md:text-lg mb-4;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .home-content p {
+      font-size: 1.125rem;
+    }
   }
   
   .home-content ul {
-    @apply space-y-2 my-4;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .home-content ul li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .home-content li {
-    @apply text-base md:text-lg;
+    font-size: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .home-content li {
+      font-size: 1.125rem;
+    }
   }
   
   .home-content blockquote {
-    @apply text-lg md:text-xl italic border-l-4 border-accent pl-4 my-6;
+    font-size: 1.125rem;
+    font-style: italic;
+    border-left: 4px solid var(--color-accent);
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .home-content blockquote {
+      font-size: 1.25rem;
+    }
   }
 </style>
+
