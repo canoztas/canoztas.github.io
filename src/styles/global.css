@@ -92,7 +92,7 @@ button {
 }
 
 a.button {
-  @apply inline-flex text-accent border-3 border-accent/30 border-double py-1.5 px-3 whitespace-nowrap hover:bg-accent/8 rounded-xl transition-colors;
+  @apply inline-flex text-accent border-3 border-accent/30 border-double py-1.5 px-3 whitespace-nowrap hover:bg-accent/8 rounded-xl transition-all duration-200 hover:shadow-md hover:scale-105;
 }
 
 header button,
@@ -105,7 +105,7 @@ button {
 }
 
 article img {
-  @apply block max-w-full border-8 border-foreground/10 rounded-xl overflow-hidden mx-auto;
+  @apply block max-w-full border-8 border-foreground/10 rounded-xl overflow-hidden mx-auto transition-transform duration-300 hover:scale-[1.02];
 
   &[pixelated='true'] {
     image-rendering: pixelated;

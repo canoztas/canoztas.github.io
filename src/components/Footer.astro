@@ -4,23 +4,23 @@ import SocialLinks from '~/components/SocialLinks.astro'
 ---
 
 <footer
-  class="mt-auto pt-9 md:pt-11 grow-0 flex flex-col gap-6 items-center justify-between max-w-full text-foreground/80"
+  class="mt-auto pt-9 md:pt-11 grow-0 flex flex-col gap-6 items-center justify-between max-w-full text-foreground/70 border-t border-accent/10 pt-8"
 >
   {siteConfig.socialLinks && <SocialLinks socialLinks={siteConfig.socialLinks} />}
-  <div class="flex flex-col md:flex-row flex-wrap flex-1 items-center justify-center">
+  <div class="flex flex-col md:flex-row flex-wrap flex-1 items-center justify-center gap-2">
     <span class="my-1">
       {siteConfig.author} © 2025
     </span>
-    <span class="mx-5 hidden md:block"> :: </span>
-    <span class="my-1">
+    <span class="mx-3 hidden md:block text-accent/50"> :: </span>
+    <span class="my-1 text-sm">
       Powered by <a
-        class="underline"
+        class="underline hover:text-accent transition-colors duration-200"
         target="_blank"
         rel="noopener noreferrer"
         href="https://astro.build">Astro</a
       >
       & <a
-        class="underline"
+        class="underline hover:text-accent transition-colors duration-200"
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/stelcodes/multiterm-astro">MultiTerm</a

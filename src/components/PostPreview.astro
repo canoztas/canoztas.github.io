@@ -24,12 +24,12 @@ const samePage = Astro.url.pathname === `/posts/${post.id}`
 const articleLink = samePage ? `#${post.id}` : `/posts/${post.id}`
 ---
 
-<article class="w-full py-5 my-1 md:my-4 border-accent/10">
+<article class="w-full py-6 my-2 md:my-5 border-b border-accent/10 hover:border-accent/30 transition-all duration-300 hover:bg-accent/5 rounded-lg px-2 -mx-2">
   <h1 class="mb-3 text-2xl text-heading1 font-semibold">
-    <a href={articleLink}># {post.data.title}</a>
+    <a href={articleLink} class="hover:text-accent transition-colors duration-200"># {post.data.title}</a>
   </h1>
   <PostInfo post={post} class="mb-3 mt-4" />
-  {description && <p class="pl-0.5 my-4 text-base/7 text-foreground">{description}</p>}
+  {description && <p class="pl-0.5 my-4 text-base/7 text-foreground/90">{description}</p>}
   {
     tags && (
       <div class="mb-6">
@@ -38,7 +38,7 @@ const articleLink = samePage ? `#${post.id}` : `/posts/${post.id}`
     )
   }
   <div>
-    <a class="button flex items-center !pl-3.5" href={articleLink}>
+    <a class="button flex items-center !pl-3.5 hover:bg-accent/20 hover:border-accent/50 transition-all duration-200" href={articleLink}>
       {samePage ? 'Continue' : 'Read'}
       <IconChevronsRight class="size-5 ml-2" />
     </a>

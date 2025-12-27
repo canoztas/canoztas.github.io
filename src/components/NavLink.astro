@@ -9,7 +9,7 @@ const { link } = Astro.props
 ---
 
 <a
-  class="underline"
+  class="underline hover:text-accent transition-colors duration-200 font-medium"
   rel={link.external ? 'noopener noreferrer' : undefined}
   target={link.external ? '_blank' : undefined}
   href={link.url}

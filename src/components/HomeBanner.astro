@@ -10,9 +10,9 @@ interface Props {
 const { avatarImage, githubCalendar } = Astro.props
 ---
 
-<div class="my-6 md:mx-2">
+<div class="my-8 md:mx-2">
   <div
-    class="flex flex-col sm:flex-row items-center justify-around sm:gap-5 max-w-full mb-6"
+    class="flex flex-col sm:flex-row items-center justify-around sm:gap-6 max-w-full mb-8 p-4 rounded-xl bg-accent/5 border border-accent/10"
   >
     {
       avatarImage && (
@@ -20,14 +20,14 @@ const { avatarImage, githubCalendar } = Astro.props
           priority
           src={avatarImage.src}
           alt={avatarImage.alt}
-          class="rounded-full border-8 border-accent/15 size-36 aspect-square box-content shrink-0"
+          class="rounded-full border-8 border-accent/20 size-36 aspect-square box-content shrink-0 shadow-lg hover:shadow-xl transition-shadow duration-300"
           widths={[288]}
           height={144}
           width={144}
         />
       )
     }
-    <div>
+    <div class="flex-1">
       <div class:list={['m-4 max-w-full prose home-content']}>
         <slot />
       </div>
