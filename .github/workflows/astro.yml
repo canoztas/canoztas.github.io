@@ -76,6 +76,10 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} pagefind --site dist
         working-directory: ${{ env.BUILD_PATH }}
+      - name: Ensure .nojekyll file exists
+        run: |
+          touch dist/.nojekyll
+        working-directory: ${{ env.BUILD_PATH }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
