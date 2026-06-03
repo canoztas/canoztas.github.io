@@ -15,7 +15,41 @@ My main focus is on Cyber Security, but I occasionally dabble in other areas of 
 - 🇹🇷 **Oztas, C.** (2024). _How to Hack Your AI ? - Yapay Zekanı Nasıl Hacklersin?_. Hacktrick 2024, Ankara, Turkey. [Link](https://www.linkedin.com/feed/update/urn:li:activity:7197585079924101120/)
 - 🇹🇷 **Oztas, R. C., & Tugrul, B.** (2023). _Comparative Analysis of Differential Privacy over Multiple Data Sets_. 8th International Scientific Conference "Telecommunications, Informatics, Energy and Management" (TIEM), Bandırma, Turkey. [Link](https://www.icmusted.com/documents/TIEM_2023_Proceedings_Book.pdf)
 
-### BibTeX
+## CVEs
+
+TBA
+
+## Teaching
+
+Teaching Assistant at Hacettepe University:
+
+- [BBM456 - Computer and Network Security](https://web.cs.hacettepe.edu.tr/~ssen/teaching/bbm456) (Undergraduate)
+- [BBG677 - Computer and Network Security](https://web.cs.hacettepe.edu.tr/~ssen/teaching/bbg677) (Graduate)
+
+I also teach:
+
+- Web Application Security
+- Mobile Security
+
+## Experience
+
+**Locked Shields 2025** — NATO CCDCOE's world-class live-fire cyber defense exercise.
+
+As **BMS Team Leader** within the **BT01 TR-HUN Blue Team**, I took part in defending complex systems under intense, real-time attack scenarios. Many thanks to the Turkish Armed Forces / Turkish Land Forces and the exercise team for making this formidable and rewarding experience possible.
+
+## Certifications
+
+- **OffSec Web Expert (OSWE)** — OffSec, May 2025 (Credential ID 143847739)
+- **Certified Threat Hunting Professional (eCTHP)** — INE Security, Apr 2025 (Credential ID 139675248)
+- **Mobile Application Penetration Tester (eMAPT)** — INE Security, Mar 2025 (Credential ID 136156242)
+- **OffSec Wireless Professional (OSWP)** — OffSec, Nov 2024 (Credential ID 121449658)
+- **Certified AI/ML Pentester (C-AI/MLPen)** — The SecOps Group, Oct 2024 (Credential ID 9167158)
+- **Practical IoT Pentest Associate (PIPA)** — TCM Security, Aug 2024 (Credential ID 113452448)
+- **Certified Digital Forensics Professional (eCDFP)** — INE Security, Jun 2024 (Credential ID 107471729)
+- **CREST Registered Penetration Tester (CREST CRT)** — CREST, Mar 2024
+- **OffSec Certified Professional (OSCP)** — OffSec, Jan 2024 (Credential ID 93912757)
+
+## BibTeX
 
 ```bibtex
 @inproceedings{oztas2026localizing,
@@ -64,37 +98,3 @@ My main focus is on Cyber Security, but I occasionally dabble in other areas of 
   url={https://www.icmusted.com/documents/TIEM_2023_Proceedings_Book.pdf}
 }
 ```
-
-## CVEs
-
-TBA
-
-## Teaching
-
-Teaching Assistant at Hacettepe University:
-
-- [BBM456 - Computer and Network Security](https://web.cs.hacettepe.edu.tr/~ssen/teaching/bbm456) (Undergraduate)
-- [BBG677 - Computer and Network Security](https://web.cs.hacettepe.edu.tr/~ssen/teaching/bbg677) (Graduate)
-
-I also teach:
-
-- Web Application Security
-- Mobile Security
-
-## Experience
-
-**Locked Shields 2025** — NATO CCDCOE's world-class live-fire cyber defense exercise.
-
-As **BMS Team Leader** within the **BT01 TR-HUN Blue Team**, I took part in defending complex systems under intense, real-time attack scenarios. Many thanks to the Turkish Armed Forces / Turkish Land Forces and the exercise team for making this formidable and rewarding experience possible.
-
-## Certifications
-
-- **OffSec Web Expert (OSWE)** — OffSec, May 2025 (Credential ID 143847739)
-- **Certified Threat Hunting Professional (eCTHP)** — INE Security, Apr 2025 (Credential ID 139675248)
-- **Mobile Application Penetration Tester (eMAPT)** — INE Security, Mar 2025 (Credential ID 136156242)
-- **OffSec Wireless Professional (OSWP)** — OffSec, Nov 2024 (Credential ID 121449658)
-- **Certified AI/ML Pentester (C-AI/MLPen)** — The SecOps Group, Oct 2024 (Credential ID 9167158)
-- **Practical IoT Pentest Associate (PIPA)** — TCM Security, Aug 2024 (Credential ID 113452448)
-- **Certified Digital Forensics Professional (eCDFP)** — INE Security, Jun 2024 (Credential ID 107471729)
-- **CREST Registered Penetration Tester (CREST CRT)** — CREST, Mar 2024
-- **OffSec Certified Professional (OSCP)** — OffSec, Jan 2024 (Credential ID 93912757)
