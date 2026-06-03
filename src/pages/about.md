@@ -33,7 +33,7 @@ I also teach:
 
 ## Competitions
 
-- 🇹🇷🇭🇺 **2025** — Locked Shields 2025 (NATO CCDCOE) — BMS Team Leader, BT01 TR-HUN Blue Team
+- 🇹🇷 🇭🇺 **2025** — Locked Shields 2025 (NATO CCDCOE) — BMS Team Leader, BT01 TR-HUN Blue Team
 - 🇹🇷 **2024** — Siber Yıldız 2024 CTF (BTK) — 2nd place, Team Sandw0rm
 
 ## Certifications
