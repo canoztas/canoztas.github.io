@@ -3,7 +3,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 title: About Me
 ---
 
-My name is Can. I am a PhD student in Computer Science.
+My name is R.C. Oztas. I am a PhD student in Computer Science.
 
 My main focus is on Cyber Security, but I occasionally dabble in other areas of Computer Science. I enjoy exploring Computer Science and learn more about it.
 
@@ -31,11 +31,10 @@ I also teach:
 - Web Application Security
 - Mobile Security
 
-## Experience
+## Competitions
 
-**Locked Shields 2025** — NATO CCDCOE's world-class live-fire cyber defense exercise.
-
-As **BMS Team Leader** within the **BT01 TR-HUN Blue Team**, I took part in defending complex systems under intense, real-time attack scenarios. Many thanks to the Turkish Armed Forces / Turkish Land Forces and the exercise team for making this formidable and rewarding experience possible.
+- **2025** — Locked Shields 2025 (NATO CCDCOE) — BMS Team Leader, BT01 TR-HUN Blue Team
+- **2024** — Siber Yıldız 2024 CTF (BTK) — 2nd place, Team Sandw0rm
 
 ## Certifications
 
