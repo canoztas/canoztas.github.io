@@ -10,7 +10,7 @@ My main focus is on Cyber Security, but I occasionally dabble in other areas of 
 ## Publications, Presentations & Projects
 
 - 🇬🇧 **Oztas, C., & Sen, S.** (2026). _Localizing Hot Pixels in Android Malware Images_. EAI SecureComm 2026, Lancaster, UK. [Link](https://securecomm.eai-conferences.org/2026/accepted-papers/)
-- 🇸🇬 **Oztas, C.** (2026). _Aegis: LLM SAST Framework for Blacklight Code Hunts_. Black Hat Asia 2026 Arsenal, Singapore. [Link](https://blackhat.com/asia-26/arsenal/schedule/index.html#aegis-llm-sast-framework-for-blacklight-code-hunts-50234)
+- 🇸🇬 **Oztas, C.** (2026). _Aegis: LLM SAST Framework for Blacklight Code Hunts_. Black Hat Asia 2026, Singapore. [Link](https://blackhat.com/asia-26/arsenal/schedule/index.html#aegis-llm-sast-framework-for-blacklight-code-hunts-50234)
 - 🇹🇷 **Oztas, R. C.** (2025). _Convolutional Neural Network Based Android Malware Detection and Localization_. Master's Thesis, Hacettepe University, Ankara, Turkey. [Link](https://research.hacettepe.edu.tr/tr/studentTheses/convolutional-neural-network-based-android-malware-detection-andl-3/)
 - 🇹🇷 **Oztas, C.** (2024). _How to Hack Your AI ? - Yapay Zekanı Nasıl Hacklersin?_. Hacktrick 2024, Ankara, Turkey. [Link](https://www.linkedin.com/feed/update/urn:li:activity:7197585079924101120/)
 - 🇹🇷 **Oztas, R. C., & Tugrul, B.** (2023). _Comparative Analysis of Differential Privacy over Multiple Data Sets_. 8th International Scientific Conference "Telecommunications, Informatics, Energy and Management" (TIEM), Bandırma, Turkey. [Link](https://www.icmusted.com/documents/TIEM_2023_Proceedings_Book.pdf)
@@ -63,7 +63,7 @@ I also teach:
 @misc{oztas2026aegis,
   title={Aegis: LLM SAST Framework for Blacklight Code Hunts},
   author={Oztas, C.},
-  howpublished={Black Hat Asia 2026 Arsenal},
+  howpublished={Black Hat Asia 2026},
   year={2026},
   address={Singapore},
   url={https://blackhat.com/asia-26/arsenal/schedule/index.html#aegis-llm-sast-framework-for-blacklight-code-hunts-50234}
