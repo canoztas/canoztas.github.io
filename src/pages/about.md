@@ -15,6 +15,14 @@ My main focus is on Cyber Security, but I occasionally dabble in other areas of 
 - <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **Oztas, C.** (2024). _How to Hack Your AI ? - Yapay Zekanı Nasıl Hacklersin?_. Hacktrick 2024, Ankara, Turkey. [Link](https://www.linkedin.com/feed/update/urn:li:activity:7197585079924101120/)
 - <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **Oztas, R. C., & Tugrul, B.** (2023). _Comparative Analysis of Differential Privacy over Multiple Data Sets_. 8th International Scientific Conference "Telecommunications, Informatics, Energy and Management" (TIEM), Bandırma, Turkey. [Link](https://www.icmusted.com/documents/TIEM_2023_Proceedings_Book.pdf)
 
+## Research Projects
+
+- **Android Malware & AI Analysis** — AI-driven malware detection, analysis, and localization within Android ecosystems; basis of my master's thesis and the [Dexective](https://github.com/canoztas/dexective) tool.
+- **AI & Vulnerability Detection** — An NLP-based approach for the DiverseVul vulnerable-code dataset ([report](/projects/pdf/diversevul.pdf)) and NEAT-based Neural Network models ([report](/projects/pdf/neat-nn.pdf)).
+- **IoT & Network Security** — ZigBee security on real-life networks ([write-up](/posts/iot-zigbee-security), [report](/projects/pdf/iot.pdf)) and an MQTT IDS attack-defense environment on GNS3 ([write-up](/posts/mqtt-ids-gns3)).
+- **Differential Privacy (BSc Graduation Project)** — Comparative research on differential privacy mechanisms and their impact on ML/DL accuracy across image datasets; led to the TIEM 2023 paper above.
+- **Computer Vision Security** — Research on adversarial attacks and defenses in vision systems.
+
 ## CVEs
 
 TBA
