@@ -188,15 +188,20 @@ article img {
 }
 
 /* Inline country flags — emoji flags don't render on Windows browsers,
-   so SVGs from /public/flags are used instead */
-img.flag {
+   so SVGs from /public/flags are used instead.
+   The `.prose img` rule applies a large my-6.5 vertical margin to every
+   image; the `.prose img.flag` selector below has higher specificity and
+   cancels it, keeping the flag inline with the text instead of pushing it
+   above the line. */
+img.flag,
+.prose img.flag {
   display: inline-block;
   width: 1.5em;
   height: 1em;
   object-fit: cover;
-  margin: 0 0.1em;
-  vertical-align: -0.125em;
-  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  margin: 0 0.15em;
+  vertical-align: -0.15em;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
   border-radius: 0.2em;
 }
 
