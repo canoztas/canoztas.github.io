@@ -187,6 +187,19 @@ article img {
   }
 }
 
+/* Inline country flags — emoji flags don't render on Windows browsers,
+   so SVGs from /public/flags are used instead */
+img.flag {
+  display: inline-block;
+  width: 1.5em;
+  height: 1em;
+  object-fit: cover;
+  margin: 0 0.1em;
+  vertical-align: -0.125em;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  border-radius: 0.2em;
+}
+
 .prose {
   @apply text-base/7;
 

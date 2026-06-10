@@ -9,11 +9,11 @@ My main focus is on Cyber Security, but I occasionally dabble in other areas of 
 
 ## Publications, Presentations & Projects
 
-- 🇬🇧 **Oztas, C., & Sen, S.** (2026). _Localizing Hot Pixels in Android Malware Images_. EAI SecureComm 2026, Lancaster, UK. [Link](https://securecomm.eai-conferences.org/2026/accepted-papers/)
-- 🇸🇬 **Oztas, C.** (2026). _Aegis: LLM SAST Framework for Blacklight Code Hunts_. Black Hat Asia 2026, Singapore. [Link](https://blackhat.com/asia-26/arsenal/schedule/index.html#aegis-llm-sast-framework-for-blacklight-code-hunts-50234)
-- 🇹🇷 **Oztas, R. C.** (2025). _Convolutional Neural Network Based Android Malware Detection and Localization_. Master's Thesis, Hacettepe University, Ankara, Turkey. [Link](https://research.hacettepe.edu.tr/tr/studentTheses/convolutional-neural-network-based-android-malware-detection-andl-3/)
-- 🇹🇷 **Oztas, C.** (2024). _How to Hack Your AI ? - Yapay Zekanı Nasıl Hacklersin?_. Hacktrick 2024, Ankara, Turkey. [Link](https://www.linkedin.com/feed/update/urn:li:activity:7197585079924101120/)
-- 🇹🇷 **Oztas, R. C., & Tugrul, B.** (2023). _Comparative Analysis of Differential Privacy over Multiple Data Sets_. 8th International Scientific Conference "Telecommunications, Informatics, Energy and Management" (TIEM), Bandırma, Turkey. [Link](https://www.icmusted.com/documents/TIEM_2023_Proceedings_Book.pdf)
+- <img class="flag" src="/flags/gb.svg" alt="UK" /> **Oztas, C., & Sen, S.** (2026). _Localizing Hot Pixels in Android Malware Images_. EAI SecureComm 2026, Lancaster, UK. [Link](https://securecomm.eai-conferences.org/2026/accepted-papers/)
+- <img class="flag" src="/flags/sg.svg" alt="Singapore" /> **Oztas, C.** (2026). _Aegis: LLM SAST Framework for Blacklight Code Hunts_. Black Hat Asia 2026, Singapore. [Link](https://blackhat.com/asia-26/arsenal/schedule/index.html#aegis-llm-sast-framework-for-blacklight-code-hunts-50234)
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **Oztas, R. C.** (2025). _Convolutional Neural Network Based Android Malware Detection and Localization_. Master's Thesis, Hacettepe University, Ankara, Turkey. [Link](https://research.hacettepe.edu.tr/tr/studentTheses/convolutional-neural-network-based-android-malware-detection-andl-3/)
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **Oztas, C.** (2024). _How to Hack Your AI ? - Yapay Zekanı Nasıl Hacklersin?_. Hacktrick 2024, Ankara, Turkey. [Link](https://www.linkedin.com/feed/update/urn:li:activity:7197585079924101120/)
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **Oztas, R. C., & Tugrul, B.** (2023). _Comparative Analysis of Differential Privacy over Multiple Data Sets_. 8th International Scientific Conference "Telecommunications, Informatics, Energy and Management" (TIEM), Bandırma, Turkey. [Link](https://www.icmusted.com/documents/TIEM_2023_Proceedings_Book.pdf)
 
 ## CVEs
 
@@ -26,15 +26,29 @@ Teaching Assistant at Hacettepe University:
 - [BBM456 - Computer and Network Security](https://web.cs.hacettepe.edu.tr/~ssen/teaching/bbm456) (Undergraduate)
 - [BBG677 - Computer and Network Security](https://web.cs.hacettepe.edu.tr/~ssen/teaching/bbg677) (Graduate)
 
-I also teach:
+Courses, talks and trainings I have delivered:
 
-- Web Application Security
-- Mobile Security
+- **Turkish Airlines Cyber-TakeOff 2022** — Web Security course
+- **Ankara University Digital Forensics Master Programme 2023** — Web/Network Security course
+- **Ankara University Computer Engineering 2023-2024** — Web/Network Security course
+- **Hacettepe University ACM 2025** — Introduction to Cybersecurity course
+- **Ankara University Cyber Security Club 2021-2025** — Web/Network/Mobile/Blue teaming courses
+- **Atilim University CSCON 2024** — Introduction to Cybersecurity course
+- **Kirikkale University 2024** — Offensive Security talk
+- **Yildiz Technical University 2025** — Endpoint Security talk
+- **Turkish Statistical Institute (TURKSTAT/TUIK) 2025** — Cybersecurity and AI panel
 
 ## Competitions
 
-- 🇹🇷 🇭🇺 **2025** — Locked Shields 2025 (NATO CCDCOE) — BMS Team Leader, BT01 TR-HUN Blue Team
-- 🇹🇷 **2024** — Siber Yıldız 2024 CTF (BTK) — 2nd place, Team Sandw0rm
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> <img class="flag" src="/flags/hu.svg" alt="Hungary" /> **2025** — Locked Shields 2025 (NATO CCDCOE) — BMS Team Leader, BT01 TR-HUN Blue Team
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **2024** — Siber Yıldız 2024 CTF (BTK) — 2nd place, Team Sandw0rm
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **2024** — Sabanci University CTF — 3rd place
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **2023** — Kapsul Teknoloji CTF (Konya) — 4th place
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **2022** — Arcelik IoT CTF — 1st place (solo)
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **2022** — Hacktrick CTF (BTK) — 4th place
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **2022** — Teknofest Hack Karadeniz — 5th place
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **2022** — STM CTF (Online) — 5th place
+- <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **CTFTime** — ranked 2nd in Turkey (general ranking)
 
 ## Certifications
 
