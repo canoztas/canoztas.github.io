@@ -10,6 +10,8 @@ My main focus is on Cyber Security, but I occasionally dabble in other areas of 
 ## Publications, Presentations & Projects
 
 - <img class="flag" src="/flags/gb.svg" alt="UK" /> **Oztas, C., & Sen, S.** (2026). _Localizing Hot Pixels in Android Malware Images_. EAI SecureComm 2026, Lancaster, UK. [Link](https://securecomm.eai-conferences.org/2026/accepted-papers/)
+- <img class="flag" src="/flags/us.svg" alt="USA" /> **Oztas, C., & Capar, K.** (2026). _From Fuzzer Noise to a Weaponized PHP Exploit: Exploiting a PHP Use-After-Free Vulnerability_. DEF CON 34, Las Vegas, USA. [Link](https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66665)
+- <img class="flag" src="/flags/us.svg" alt="USA" /> **Oztas, C.** (2026). _Aegis of the Vulnerable: A Unified Pipeline for AI-Based SAST_. AppSec Village, DEF CON 34, Las Vegas, USA. [Link](https://www.appsecvillage.com/events/dc-2026/aegis-of-the-vulnerable-a-unified-pipeline-for-ai-based-sast-1248496)
 - <img class="flag" src="/flags/sg.svg" alt="Singapore" /> **Oztas, C.** (2026). _Aegis: LLM SAST Framework for Blacklight Code Hunts_. Black Hat Asia 2026, Singapore. [Link](https://blackhat.com/asia-26/arsenal/schedule/index.html#aegis-llm-sast-framework-for-blacklight-code-hunts-50234)
 - <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **Oztas, R. C.** (2025). _Convolutional Neural Network Based Android Malware Detection and Localization_. Master's Thesis, Hacettepe University, Ankara, Turkey. [Link](https://research.hacettepe.edu.tr/tr/studentTheses/convolutional-neural-network-based-android-malware-detection-andl-3/)
 - <img class="flag" src="/flags/tr.svg" alt="Turkey" /> **Oztas, C.** (2024). _How to Hack Your AI ? - Yapay Zekanı Nasıl Hacklersin?_. Hacktrick 2024, Ankara, Turkey. [Link](https://www.linkedin.com/feed/update/urn:li:activity:7197585079924101120/)
@@ -80,6 +82,24 @@ Courses, talks and trainings I have delivered:
   year={2026},
   address={Lancaster, UK},
   url={https://securecomm.eai-conferences.org/2026/accepted-papers/}
+}
+
+@misc{oztas2026defcon,
+  title={From Fuzzer Noise to a Weaponized PHP Exploit: Exploiting a PHP Use-After-Free Vulnerability},
+  author={Oztas, Can and Capar, Kagan},
+  howpublished={DEF CON 34},
+  year={2026},
+  address={Las Vegas, USA},
+  url={https://defcon.org/html/defcon-34/dc-34-speakers.html#content_66665}
+}
+
+@misc{oztas2026appsec,
+  title={Aegis of the Vulnerable: A Unified Pipeline for AI-Based SAST},
+  author={Oztas, Can},
+  howpublished={AppSec Village, DEF CON 34},
+  year={2026},
+  address={Las Vegas, USA},
+  url={https://www.appsecvillage.com/events/dc-2026/aegis-of-the-vulnerable-a-unified-pipeline-for-ai-based-sast-1248496}
 }
 
 @misc{oztas2026aegis,
