@@ -47,7 +47,7 @@ Courses, talks and trainings I have delivered:
 - **Kirikkale University 2024** — Offensive Security talk
 - **Yildiz Technical University 2025** — Endpoint Security talk
 - **Turkish Statistical Institute (TURKSTAT/TUIK) 2025** — Cybersecurity and AI panel
-- **TurkNet 2026** — Secure Coding and Programming course ([syllabus](/courses/secure-coding))
+- **TurkNet 2026** — [Secure Coding and Programming course](/courses/secure-coding)
 
 ## Competitions
 
