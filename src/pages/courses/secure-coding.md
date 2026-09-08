@@ -22,23 +22,23 @@ Bu ders, öğrencilere yazılım geliştirme yaşam döngüsünün her aşaması
 
 ### Haftalık Ders Planı
 
-| Hafta | Konu | Ödev / Teslim |
-|:---:|---|---|
-| 1 | Yazılım güvenliğine giriş: saldırgan bakış açısı, güvenli tasarım ilkeleri ve tehdit modelleme (STRIDE) | Dönem projesinin duyurulması |
-| 2 | Enjeksiyon saldırıları (SQLi, CMDi, NoSQL, XXE) ve güvenilmeyen girdinin güvenli işlenmesi | **Ödev 1 verilir** |
-| 3 | Tarayıcı güvenlik modeli, istemci taraflı web saldırıları (XSS, CSRF, Clickjacking) ve savunma | Takımlar ve konu seçimi |
-| 4 | Yazılım geliştiriciler için uygulamalı kriptografi: doğru kullanım, TLS ve yaygın hatalar | |
-| 5 | Kimlik doğrulama, parola politikaları, oturum yönetimi ve modern protokoller (OAuth 2.0, JWT, Passkey) | **Ödev 1 teslimi** |
-| 6 | Yetkilendirme, erişim kontrolü modelleri (RBAC/ABAC), IDOR/BOLA ve API güvenliği | Proje ara kontrolü |
-| 7 | Bellek güvenliği: C/C++ zafiyetleri (taşma, use-after-free), sömürü mantığı ve önlemler (ASLR, DEP, Canary) | **Ödev 2 verilir** |
-| 8 | Güvenli yapılandırma, loglama/hata yönetimi ve yazılım tedarik zinciri güvenliği (SCA, SBOM) | |
-| 9 | Statik ve dinamik program analizi (SAST/DAST) ile zafiyet tespiti ve bulgu triyajı | **Ödev 2 teslimi** |
-| 10 | Yapay zekâ destekli yazılım geliştirmede güvenlik ve kod asistanlarının riskleri | |
-| 11 | Büyük dil modeli (LLM) tabanlı uygulamaların güvenliği (Prompt Injection, OWASP LLM Top 10, Ajan Güvenliği) | |
-| 12 | Dönem projesi sunumları (I) | Sunumlar |
-| 13 | Dönem projesi sunumları (II) ve dönem değerlendirmesi | Sunumlar & Rapor teslimi |
-| 14 | Genel tekrar ve sınav hazırlığı: zafiyetten yamaya bütünleşik vaka çalışması | |
-| 15 | Yarıyıl sonu sınavı | **Final Sınavı** |
+| Hafta | Konu |
+|:---:|---|
+| 1 | Yazılım güvenliğine giriş: saldırgan bakış açısı, güvenli tasarım ilkeleri ve tehdit modelleme (STRIDE) |
+| 2 | Enjeksiyon saldırıları (SQLi, CMDi, NoSQL, XXE) ve güvenilmeyen girdinin güvenli işlenmesi |
+| 3 | Tarayıcı güvenlik modeli, istemci taraflı web saldırıları (XSS, CSRF, Clickjacking) ve savunma |
+| 4 | Yazılım geliştiriciler için uygulamalı kriptografi: doğru kullanım, TLS ve yaygın hatalar |
+| 5 | Kimlik doğrulama, parola politikaları, oturum yönetimi ve modern protokoller (OAuth 2.0, JWT, Passkey) |
+| 6 | Yetkilendirme, erişim kontrolü modelleri (RBAC/ABAC), IDOR/BOLA ve API güvenliği |
+| 7 | Bellek güvenliği: C/C++ zafiyetleri (taşma, use-after-free), sömürü mantığı ve önlemler (ASLR, DEP, Canary) |
+| 8 | Güvenli yapılandırma, loglama/hata yönetimi ve yazılım tedarik zinciri güvenliği (SCA, SBOM) |
+| 9 | Statik ve dinamik program analizi (SAST/DAST) ile zafiyet tespiti ve bulgu triyajı |
+| 10 | Yapay zekâ destekli yazılım geliştirmede güvenlik ve kod asistanlarının riskleri |
+| 11 | Büyük dil modeli (LLM) tabanlı uygulamaların güvenliği (Prompt Injection, OWASP LLM Top 10, Ajan Güvenliği) |
+| 12 | Dönem projesi sunumları (I) |
+| 13 | Dönem projesi sunumları (II) ve dönem değerlendirmesi |
+| 14 | Genel tekrar ve sınav hazırlığı: zafiyetten yamaya bütünleşik vaka çalışması |
+| 15 | Yarıyıl sonu sınavı |
 
 ---
 
