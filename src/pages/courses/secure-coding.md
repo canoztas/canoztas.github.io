@@ -35,8 +35,8 @@ Bu ders, öğrencilere yazılım geliştirme yaşam döngüsünün her aşaması
 | 9 | Statik ve dinamik program analizi (SAST/DAST) ile zafiyet tespiti ve bulgu triyajı |
 | 10 | Yapay zekâ destekli yazılım geliştirmede güvenlik ve kod asistanlarının riskleri |
 | 11 | Büyük dil modeli (LLM) tabanlı uygulamaların güvenliği (Prompt Injection, OWASP LLM Top 10, Ajan Güvenliği) |
-| 12 | Dönem projesi sunumları (I) |
-| 13 | Dönem projesi sunumları (II) ve dönem değerlendirmesi |
+| 12 | Tampon: geriden gelen konular ve uygulama |
+| 13 | Tampon: uygulama ve bütünleşik tekrar |
 | 14 | Genel tekrar ve sınav hazırlığı: zafiyetten yamaya bütünleşik vaka çalışması |
 | 15 | Yarıyıl sonu sınavı |
 
@@ -52,7 +52,7 @@ Bu ders, öğrencilere yazılım geliştirme yaşam döngüsünün her aşaması
 | **Toplam** | | **%100** |
 
 - **Ara Sınav (%20):** Üniversitelerin vize haftasında, ders saati dışında yapılır; dönemin ilk yarısının konuları (kod analizi, zafiyet tespiti ve düzeltme).
-- **Dönem Projesi — Zafiyet Otopsisi (%20):** Takımlar halinde gerçek ve yamalanmış bir zafiyetin (CVE veya olay) kök neden, sömürü yolu, yama eleştirisi ve çıkarımlarla incelenmesi; teknik rapor ve sunum. Sunum sonrası soru-cevap bireysel notlandırılır.
+- **Dönem Projesi — Zafiyet Otopsisi (%20):** **Bireysel.** Yamalanmış gerçek bir zafiyetin (CVE veya olay) kök neden, sömürü yolu, yama eleştirisi ve çıkarımlarla incelenmesi; teknik rapor ve en fazla 5 dakikalık anlatım videosu. Ders saatinde sunum yapılmaz.
 - **Final Sınavı (%60):** Kapalı kaynak dönem sonu sınavı (kod analizi, zafiyet tespiti, düzeltme yazma ve tasarım kararları).
 
 Haftalık laboratuvarlar ve okumalar notlandırılmaz; ancak sınav soruları bu uygulamalar üzerinden kurulur.
