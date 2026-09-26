@@ -46,14 +46,22 @@ Bu ders, öğrencilere yazılım geliştirme yaşam döngüsünün her aşaması
 
 | Faaliyet | Sayı | Ağırlık |
 |---|:---:|:---:|
-| Ödevler | 2 | %20 |
-| Dönem Projesi (Zafiyet Otopsisi) | 1 | %30 |
-| Final Sınavı | 1 | %50 |
+| Ara Sınav (Vize) | 1 | %20 |
+| Dönem Projesi (Zafiyet Otopsisi) | 1 | %20 |
+| Final Sınavı | 1 | %60 |
 | **Toplam** | | **%100** |
 
-- **Ödevler (%20):** İki bireysel ödev (her biri %10). Ödev 1: Zafiyetli web uygulamasında açık tespiti, PoC ve kök neden/düzeltme raporu. Ödev 2: C programında bellek hatası tespiti/onarımı ve SAST çıktısı triyajı.
-- **Dönem Projesi — Zafiyet Otopsisi (%30):** Takımlar halinde gerçek ve yamalanmış bir zafiyetin (CVE veya olay) kök neden, sömürü yolu, yama eleştirisi ve çıkarımlarla incelenmesi; teknik rapor ve sunum.
-- **Final Sınavı (%50):** Kapalı kaynak dönem sonu sınavı (kod analizi, zafiyet tespiti, düzeltme yazma ve tasarım kararları).
+- **Ara Sınav (%20):** Üniversitelerin vize haftasında, ders saati dışında yapılır; dönemin ilk yarısının konuları (kod analizi, zafiyet tespiti ve düzeltme).
+- **Dönem Projesi — Zafiyet Otopsisi (%20):** Takımlar halinde gerçek ve yamalanmış bir zafiyetin (CVE veya olay) kök neden, sömürü yolu, yama eleştirisi ve çıkarımlarla incelenmesi; teknik rapor ve sunum. Sunum sonrası soru-cevap bireysel notlandırılır.
+- **Final Sınavı (%60):** Kapalı kaynak dönem sonu sınavı (kod analizi, zafiyet tespiti, düzeltme yazma ve tasarım kararları).
+
+Haftalık laboratuvarlar ve okumalar notlandırılmaz; ancak sınav soruları bu uygulamalar üzerinden kurulur.
+
+---
+
+### Ders Materyalleri
+
+Haftalık slaytlar (PDF) ve duyurular: **[github.com/canoztas/secure-coding](https://github.com/canoztas/secure-coding)**
 
 ---
 
